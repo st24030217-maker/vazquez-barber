@@ -1,0 +1,1987 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Barbería Vázquez</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@200;300;400;500&family=DM+Mono:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="cursor" id="cur"></div>
+    <div class="cursor-ring" id="crng"></div>
+
+    <!-- LOADER -->
+    <div id="loader">
+      <div class="ld-top"></div>
+      <div class="ld-bot"></div>
+      <div class="ld-inner">
+        <img src="logo.png" alt="Barbería Vázquez" class="ld-svg" style="filter:invert(1);object-fit:contain;mix-blend-mode:screen;" />
+        <div class="ld-word">
+          <span>V</span><span>Á</span><span>Z</span><span>Q</span><span>U</span><span>E</span><span>Z</span>
+        </div>
+        <div class="ld-sub">Barbería &nbsp;·&nbsp; Vázquez</div>
+        <div class="ld-bar-wrap"><div class="ld-bar"></div></div>
+        <div class="ld-pct" id="ldPct">0%</div>
+      </div>
+    </div>
+
+    <!-- NAV -->
+    <nav id="nav">
+      <a class="nav-logo" href="#hero">
+        <img src="logo.png" alt="Barbería Vázquez" style="height:48px;width:auto;filter:invert(1);mix-blend-mode:screen;vertical-align:middle;" />
+        <span class="nav-brand-text">Barbería<br><em>Vázquez</em></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">Nosotros</a></li>
+        <li><a href="#services">Servicios</a></li>
+        <li><a href="#barbers">Equipo</a></li>
+        <li><a href="#gallery">Galería</a></li>
+        <li><a href="#testimonials">Reseñas</a></li>
+        <li><a href="#giftcards">Gift Cards</a></li>
+        <li><a href="#booking" class="nav-cta">Reservar</a></li>
+      </ul>
+      <button class="hbg" id="hbg" onclick="tmenu()" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <div class="mob" id="mob">
+      <a href="#about" onclick="cmenu()">Nosotros</a>
+      <a href="#services" onclick="cmenu()">Servicios</a>
+      <a href="#barbers" onclick="cmenu()">Equipo</a>
+      <a href="#gallery" onclick="cmenu()">Galería</a>
+      <a href="#testimonials" onclick="cmenu()">Reseñas</a>
+      <a href="#booking" onclick="cmenu()">Reservar</a>
+    </div>
+
+    <!-- HERO -->
+    <section id="hero">
+      <div class="h-noise"></div>
+      <div class="h-grid"></div>
+      <div class="h-glow"></div>
+      <div class="h-vignette"></div>
+      <div class="h-content">
+        <div class="h-eye">
+          <div class="h-eye-line"></div>
+          Barbería de Precisión &nbsp;·&nbsp; Lerdo, Durango
+        </div>
+        <h1>El Arte<br />del Corte<br /><em>Perfecto</em></h1>
+        <p class="h-desc">
+          Donde la tradición artesanal se une con el estilo contemporáneo. Cada
+          visita, una experiencia diseñada exclusivamente para ti.
+        </p>
+        <div class="h-btns">
+          <a href="#booking" class="btn-g">
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="3" y="4" width="18" height="18" rx="2" />
+              <line x1="16" y1="2" x2="16" y2="6" />
+              <line x1="8" y1="2" x2="8" y2="6" />
+              <line x1="3" y1="10" x2="21" y2="10" />
+            </svg>
+            Reservar Cita
+          </a>
+          <a href="#services" class="btn-o"
+            >Ver Servicios
+            <svg
+              width="13"
+              height="13"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="h-floats">
+        <div class="hf">
+          <span class="hf-n" data-count="30">0<em>+</em></span
+          ><span class="hf-l">Años activos</span>
+        </div>
+        <div class="hf">
+          <span class="hf-n" data-count="8500">0</span
+          ><span class="hf-l">Clientes</span>
+        </div>
+        <div class="hf">
+          <span class="hf-n" data-count="6">0</span
+          ><span class="hf-l">Maestros</span>
+        </div>
+      </div>
+      <div class="scroll-cue">
+        <div class="sw"></div>
+        Scroll
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="reveal" style="position: relative">
+        <div class="ab-frame">
+          <svg class="ab-ico" viewBox="0 0 80 80">
+            <circle cx="20" cy="20" r="8" />
+            <circle cx="20" cy="60" r="8" />
+            <line x1="40" y1="40" x2="12" y2="12" />
+            <line x1="40" y1="40" x2="12" y2="68" />
+            <line x1="40" y1="40" x2="72" y2="40" />
+          </svg>
+          <div class="ab-badge">
+            <strong>30</strong><span>Años de<br />Tradición</span>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="sl">Nuestra Historia</div>
+        <h2 class="st">Más que un corte,<br />un ritual</h2>
+        <div class="ab-rule"></div>
+        <p class="ab-p">
+          Desde sus inicios, Barbería Vázquez ha sido el santuario del caballero que
+          entiende que su imagen es un reflejo de su carácter. Fundada por Don
+          Rafael Medina, nuestra filosofía nunca ha cambiado: cada cliente
+          merece lo extraordinario.
+        </p>
+        <blockquote class="ab-q">
+          "Un buen corte no cambia quién eres — revela quién siempre fuiste."
+        </blockquote>
+        <p class="ab-p">
+          Combinamos técnicas clásicas con tendencias contemporáneas, usando
+          exclusivamente productos de primera calidad seleccionados en todo el
+          mundo.
+        </p>
+        <div class="ab-ck">
+          <div class="ck">
+            <svg
+              width="13"
+              height="13"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#7B4A30"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            >
+              <polyline points="20 6 9 17 4 12" /></svg
+            >Productos premium
+          </div>
+          <div class="ck">
+            <svg
+              width="13"
+              height="13"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#7B4A30"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            >
+              <polyline points="20 6 9 17 4 12" /></svg
+            >Técnicas clásicas
+          </div>
+          <div class="ck">
+            <svg
+              width="13"
+              height="13"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#7B4A30"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            >
+              <polyline points="20 6 9 17 4 12" /></svg
+            >Ambiente exclusivo
+          </div>
+          <div class="ck">
+            <svg
+              width="13"
+              height="13"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#7B4A30"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            >
+              <polyline points="20 6 9 17 4 12" /></svg
+            >Sin tiempos de espera
+          </div>
+          <div class="ck">
+            <svg
+              width="13"
+              height="13"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#7B4A30"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            >
+              <polyline points="20 6 9 17 4 12" /></svg
+            >Confirmación inmediata
+          </div>
+          <div class="ck">
+            <svg
+              width="13"
+              height="13"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#7B4A30"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            >
+              <polyline points="20 6 9 17 4 12" /></svg
+            >Servicio personalizado
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="sv-head reveal">
+        <div>
+          <div class="sl">Lo que ofrecemos</div>
+          <h2 class="st">Servicios & Precios</h2>
+        </div>
+        <a href="#booking" class="btn-g">Reservar</a>
+      </div>
+      <div class="sv-grid reveal">
+        <div class="sv">
+          <svg class="sv-i" viewBox="0 0 24 24">
+            <circle cx="6" cy="6" r="3" />
+            <circle cx="6" cy="18" r="3" />
+            <line x1="20" y1="4" x2="8.12" y2="15.88" />
+            <line x1="14.47" y1="14.48" x2="20" y2="20" />
+            <line x1="8.12" y1="8.12" x2="12" y2="12" />
+          </svg>
+          <div class="sv-n">Corte Clásico</div>
+          <p class="sv-d">
+            Corte de precisión con tijera y máquina, terminado con navaja para
+            un acabado impecable y duradero.
+          </p>
+          <div class="sv-p">
+            <span class="a">$150</span><span class="m">MXN</span>
+          </div>
+          <div class="sv-dur">45 minutos</div>
+        </div>
+        <div class="sv">
+          <span class="sv-badge">Popular</span>
+          <svg class="sv-i" viewBox="0 0 24 24">
+            <path d="M20 7L12 3L4 7v10l8 4 8-4V7z" />
+            <line x1="12" y1="3" x2="12" y2="21" />
+            <polyline points="4 7 12 11 20 7" />
+          </svg>
+          <div class="sv-n">Corte + Afeitado</div>
+          <p class="sv-d">
+            La experiencia completa. Corte de precisión más afeitado a navaja
+            con toalla caliente y aceites esenciales.
+          </p>
+          <div class="sv-p">
+            <span class="a">$280</span><span class="m">MXN</span>
+          </div>
+          <div class="sv-dur">75 minutos</div>
+        </div>
+        <div class="sv">
+          <svg class="sv-i" viewBox="0 0 24 24">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+            <path d="M8 14s1.5 2 4 2 4-2 4-2" />
+          </svg>
+          <div class="sv-n">Diseño de Barba</div>
+          <p class="sv-d">
+            Perfilado, delineado y acondicionamiento profundo para una barba
+            perfectamente definida y nutrida.
+          </p>
+          <div class="sv-p">
+            <span class="a">$120</span><span class="m">MXN</span>
+          </div>
+          <div class="sv-dur">35 minutos</div>
+        </div>
+        <div class="sv">
+          <svg class="sv-i" viewBox="0 0 24 24">
+            <polygon
+              points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+            />
+          </svg>
+          <div class="sv-n">Experiencia VIP</div>
+          <p class="sv-d">
+            Corte + afeitado + mascarilla facial + masaje de cuero cabelludo +
+            bebida de cortesía. El máximo lujo.
+          </p>
+          <div class="sv-p">
+            <span class="a">$450</span><span class="m">MXN</span>
+          </div>
+          <div class="sv-dur">2 horas</div>
+        </div>
+        <div class="sv">
+          <svg class="sv-i" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M8 14s1.5 2 4 2 4-2 4-2" />
+            <line x1="9" y1="9" x2="9.01" y2="9" />
+            <line x1="15" y1="9" x2="15.01" y2="9" />
+          </svg>
+          <div class="sv-n">Color & Mechas</div>
+          <p class="sv-d">
+            Coloración profesional, mechas naturales o cobertura de canas.
+            Resultados de semanas con productos de lujo.
+          </p>
+          <div class="sv-p">
+            <span class="a">$350</span><span class="m">MXN</span>
+          </div>
+          <div class="sv-dur">90 minutos</div>
+        </div>
+        <div class="sv">
+          <svg class="sv-i" viewBox="0 0 24 24">
+            <path
+              d="M12 22c-4.97 0-9-4.03-9-9 0-4.68 3.58-8.55 8.18-8.96L12 4l.82-.04C17.42 4.45 21 8.32 21 13c0 4.97-4.03 9-9 9z"
+            />
+            <path d="M12 4c0 0-3 3-3 7s3 7 3 7 3-3 3-7-3-7-3-7z" />
+          </svg>
+          <div class="sv-n">Masaje & Facial</div>
+          <p class="sv-d">
+            Tratamiento facial revitalizante con masaje de cuero cabelludo y
+            productos artesanales seleccionados.
+          </p>
+          <div class="sv-p">
+            <span class="a">$200</span><span class="m">MXN</span>
+          </div>
+          <div class="sv-dur">50 minutos</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BARBERS -->
+    <section id="barbers">
+      <div class="reveal">
+        <div class="sl">Nuestro equipo</div>
+        <h2 class="st">Los Maestros</h2>
+        <p class="ss">
+          Cada barbero cuenta con más de 8 años de experiencia y formación
+          continua en las tendencias más actuales a nivel internacional.
+        </p>
+      </div>
+      <div class="bb-grid reveal">
+        <div class="bb">
+          <div class="bb-ph">
+            <svg class="bb-ph-i" viewBox="0 0 80 80">
+              <circle cx="40" cy="28" r="14" />
+              <path d="M14 68c0-14.36 11.64-26 26-26s26 11.64 26 26" />
+              <line x1="40" y1="2" x2="40" y2="14" />
+              <circle
+                cx="40"
+                cy="2"
+                r="2"
+                fill="rgba(201,168,76,.3)"
+                stroke="none"
+              />
+            </svg>
+          </div>
+          <div class="bb-b">
+            <div class="bb-n">Rafael Medina</div>
+            <div class="bb-r">Fundador & Maestro Barbero</div>
+            <p class="bb-bio">
+              30 años perfeccionando el arte del corte clásico. Formado en las
+              mejores barberías de España y México, Rafael es sinónimo de
+              excelencia.
+            </p>
+            <div class="bb-tags">
+              <span class="btag">Navaja clásica</span
+              ><span class="btag">Corte clásico</span
+              ><span class="btag">Vintage</span>
+            </div>
+            <div class="bb-rat">
+              <div class="stars">
+                <svg class="si" viewBox="0 0 24 24">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                  /></svg
+                ><svg class="si" viewBox="0 0 24 24">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                  /></svg
+                ><svg class="si" viewBox="0 0 24 24">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                  /></svg
+                ><svg class="si" viewBox="0 0 24 24">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                  /></svg
+                ><svg class="si" viewBox="0 0 24 24">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                  />
+                </svg>
+              </div>
+              <span class="rt">5.0 · 482 reseñas</span>
+            </div>
+          </div>
+        </div>
+        <div class="bb">
+          <div class="bb-ph">
+            <svg class="bb-ph-i" viewBox="0 0 80 80">
+              <circle cx="40" cy="28" r="14" />
+              <path d="M14 68c0-14.36 11.64-26 26-26s26 11.64 26 26" />
+              <path d="M28 18 Q40 12 52 18" stroke-width="1" />
+            </svg>
+          </div>
+          <div class="bb-b">
+            <div class="bb-n">Carlos Vega</div>
+            <div class="bb-r">Especialista en Fades</div>
+            <p class="bb-bio">
+              Experto en degradados y estilos urbanos modernos. Campeón regional
+              de barbería 2022, Carlos lleva el fade al siguiente nivel.
+            </p>
+            <div class="bb-tags">
+              <span class="btag">Skin fade</span
+              ><span class="btag">Diseños</span
+              ><span class="btag">Urban style</span>
+            </div>
+            <div class="bb-rat">
+              <div class="stars">
+                <svg class="si" viewBox="0 0 24 24">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                  /></svg
+                ><svg class="si" viewBox="0 0 24 24">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                  /></svg
+                ><svg class="si" viewBox="0 0 24 24">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                  /></svg
+                ><svg class="si" viewBox="0 0 24 24">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                  /></svg
+                ><svg class="si" viewBox="0 0 24 24">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                  />
+                </svg>
+              </div>
+              <span class="rt">4.9 · 318 reseñas</span>
+            </div>
+          </div>
+        </div>
+        <div class="bb">
+          <div class="bb-ph">
+            <svg class="bb-ph-i" viewBox="0 0 80 80">
+              <circle cx="40" cy="28" r="14" />
+              <path d="M14 68c0-14.36 11.64-26 26-26s26 11.64 26 26" />
+              <path d="M28 42 Q40 52 52 42" stroke-width="1" />
+            </svg>
+          </div>
+          <div class="bb-b">
+            <div class="bb-n">Miguel Torres</div>
+            <div class="bb-r">Maestro de la Barba</div>
+            <p class="bb-bio">
+              Dedicado exclusivamente al arte de la barba. Sus diseños y
+              perfilados son reconocidos como los mejores de la región lagunera.
+            </p>
+            <div class="bb-tags">
+              <span class="btag">Diseño de barba</span
+              ><span class="btag">Navaja real</span
+              ><span class="btag">Tratamientos</span>
+            </div>
+            <div class="bb-rat">
+              <div class="stars">
+                <svg class="si" viewBox="0 0 24 24">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                  /></svg
+                ><svg class="si" viewBox="0 0 24 24">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                  /></svg
+                ><svg class="si" viewBox="0 0 24 24">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                  /></svg
+                ><svg class="si" viewBox="0 0 24 24">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                  /></svg
+                ><svg class="si" viewBox="0 0 24 24">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                  />
+                </svg>
+              </div>
+              <span class="rt">4.9 · 267 reseñas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery">
+      <div class="reveal">
+        <div class="sl">Nuestro trabajo</div>
+        <h2 class="st">Galería</h2>
+        <p class="ss">
+          Cada corte es una obra de arte. Una muestra de nuestros trabajos más
+          representativos.
+        </p>
+      </div>
+      <div class="gl-grid reveal">
+        <div
+          class="gl-item"
+          onclick="
+            openLb('Fade Clásico', 'Degradado perfecto con acabado a navaja')
+          "
+        >
+          <svg
+            class="gl-ico"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="6" cy="6" r="3" />
+            <circle cx="6" cy="18" r="3" />
+            <line x1="20" y1="4" x2="8.12" y2="15.88" />
+            <line x1="14.47" y1="14.48" x2="20" y2="20" />
+            <line x1="8.12" y1="8.12" x2="12" y2="12" />
+          </svg>
+          <div class="gl-ov">
+            <div class="gl-ot">Fade Clásico</div>
+            <div class="gl-os">Ver detalles</div>
+          </div>
+        </div>
+        <div
+          class="gl-item"
+          onclick="
+            openLb('Barba Definida', 'Diseño y perfilado de barba premium')
+          "
+        >
+          <svg
+            class="gl-ico"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg>
+          <div class="gl-ov">
+            <div class="gl-ot">Barba Definida</div>
+            <div class="gl-os">Ver detalles</div>
+          </div>
+        </div>
+        <div
+          class="gl-item"
+          onclick="
+            openLb('Texturizado', 'Técnica de texturizado con tijera artesanal')
+          "
+        >
+          <svg
+            class="gl-ico"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke-linecap="round"
+          >
+            <line x1="4" y1="6" x2="20" y2="6" />
+            <line x1="4" y1="10" x2="20" y2="10" />
+            <line x1="4" y1="14" x2="14" y2="14" />
+            <line x1="4" y1="18" x2="14" y2="18" />
+          </svg>
+          <div class="gl-ov">
+            <div class="gl-ot">Texturizado</div>
+            <div class="gl-os">Ver detalles</div>
+          </div>
+        </div>
+        <div
+          class="gl-item"
+          onclick="
+            openLb('Skin Fade', 'Skin fade con diseño geométrico personalizado')
+          "
+        >
+          <svg
+            class="gl-ico"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2" />
+            <line x1="12" y1="2" x2="12" y2="22" />
+            <line x1="2" y1="8.5" x2="22" y2="8.5" />
+          </svg>
+          <div class="gl-ov">
+            <div class="gl-ot">Skin Fade</div>
+            <div class="gl-os">Ver detalles</div>
+          </div>
+        </div>
+        <div
+          class="gl-item"
+          onclick="
+            openLb('Estilo Vintage', 'Peinado años 50 con cera artesanal')
+          "
+        >
+          <svg
+            class="gl-ico"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polygon
+              points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+            />
+          </svg>
+          <div class="gl-ov">
+            <div class="gl-ot">Estilo Vintage</div>
+            <div class="gl-os">Ver detalles</div>
+          </div>
+        </div>
+        <div
+          class="gl-item"
+          onclick="
+            openLb('Color & Mechas', 'Mechas naturales con técnica balayage')
+          "
+        >
+          <svg
+            class="gl-ico"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <line x1="2" y1="12" x2="22" y2="12" />
+            <path
+              d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+            />
+          </svg>
+          <div class="gl-ov">
+            <div class="gl-ot">Color & Mechas</div>
+            <div class="gl-os">Ver detalles</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOKING -->
+    <section id="booking">
+      <div class="reveal">
+        <div class="sl">Agenda tu visita</div>
+        <h2 class="st">Reserva tu Cita</h2>
+        <p
+          style="
+            color: var(--gray-light);
+            font-size: 0.88rem;
+            line-height: 1.85;
+            font-weight: 300;
+          "
+        >
+          Sin esperas, sin sorpresas. Elige tu barbero, servicio y horario
+          preferido. Confirmación inmediata vía WhatsApp.
+        </p>
+        <div class="bk-hrs-h">Horario de Atención</div>
+        <div class="hr">
+          <span class="hd">Lunes</span><span class="ht">10:00 – 20:00</span>
+        </div>
+        <div class="hr">
+          <span class="hd">Martes</span><span class="ht">10:00 – 20:00</span>
+        </div>
+        <div class="hr">
+          <span class="hd">Miércoles</span><span class="ht">10:00 – 20:00</span>
+        </div>
+        <div class="hr">
+          <span class="hd">Jueves</span><span class="ht">10:00 – 21:00</span>
+        </div>
+        <div class="hr">
+          <span class="hd">Viernes</span><span class="ht">09:00 – 21:00</span>
+        </div>
+        <div class="hr">
+          <span class="hd">Sábado</span><span class="ht">09:00 – 21:00</span>
+        </div>
+        <div class="hr">
+          <span class="hd">Domingo</span><span class="hc">Cerrado</span>
+        </div>
+      </div>
+      <div class="bk-form reveal">
+        <div class="bkf-t">Nueva Reservación</div>
+        <form id="aptForm">
+          <div class="fgrid">
+            <div class="fg">
+              <label>Nombre</label
+              ><input id="aptNombre" type="text" placeholder="Tu nombre completo" required />
+            </div>
+            <div class="fg">
+              <label>Teléfono</label
+              ><input id="aptTelefono" type="tel" placeholder="+52 618 000 0000" required />
+            </div>
+            <div class="fg">
+              <label>Servicio</label
+              ><select id="aptServicio" required>
+                <option value="">Seleccionar...</option>
+                <option>Corte Clásico — $150</option>
+                <option>Corte + Afeitado — $280</option>
+                <option>Diseño de Barba — $120</option>
+                <option>Experiencia VIP — $450</option>
+                <option>Color & Mechas — $350</option>
+                <option>Masaje & Facial — $200</option>
+              </select>
+            </div>
+            <div class="fg">
+              <label>Barbero</label
+              ><select id="aptBarbero">
+                <option>Cualquier barbero</option>
+                <option>Rafael Medina</option>
+                <option>Carlos Vega</option>
+                <option>Miguel Torres</option>
+              </select>
+            </div>
+            <div class="fg">
+              <label>Fecha</label><input type="date" id="dateIn" required />
+            </div>
+            <div class="fg">
+              <label>Horario</label
+              ><select id="aptHora" required>
+                <option value="">Seleccionar...</option>
+                <option>10:00 AM</option>
+                <option>11:00 AM</option>
+                <option>12:00 PM</option>
+                <option>1:00 PM</option>
+                <option>2:00 PM</option>
+                <option>3:00 PM</option>
+                <option>4:00 PM</option>
+                <option>5:00 PM</option>
+                <option>6:00 PM</option>
+                <option>7:00 PM</option>
+              </select>
+            </div>
+            <div class="fg sp2">
+              <label>Notas</label
+              ><textarea id="aptNotas"
+                placeholder="Alguna preferencia especial o referencia de estilo..."
+              ></textarea>
+            </div>
+          </div>
+          <button type="submit" class="f-btn">Confirmar Reservación</button>
+        </form>
+        <div class="f-ok" id="fOk">
+          <svg class="f-ok-i" width="52" height="52" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
+            <polyline
+              points="9 12 11 14 15 10"
+              stroke="#7B4A30"
+              stroke-width="1.2"
+              stroke-linecap="round"
+            />
+          </svg>
+          Reservación confirmada.<br />
+          <span
+            style="
+              font-family: var(--fb);
+              font-size: 0.85rem;
+              color: var(--gray-light);
+              font-weight: 300;
+            "
+            >Te contactaremos por WhatsApp en breve.</span
+          >
+        </div>
+      </div>
+    </section>
+
+
+    <!-- GIFT CARDS -->
+    <section id="giftcards">
+      <div class="gc-bg"></div>
+      <div class="gc-inner">
+
+        <div class="gc-head reveal">
+          <div class="sl" style="justify-content:center">Programa de lealtad</div>
+          <h2 class="st" style="text-align:center">Tarjeta de Fidelidad</h2>
+          <p class="gc-sub">Acumula visitas y gana un corte gratis.<br>Por cada 6 visitas te regalamos un <strong style="color:var(--gold-light)">Corte Clásico completamente gratis.</strong></p>
+        </div>
+
+        <!-- TARJETA INTERACTIVA -->
+        <div class="lc-wrap reveal">
+          <div class="lc-card" id="lcCard">
+            <div class="lc-shine"></div>
+            <div class="lc-top">
+              <div class="lc-logo">
+                <img src="logo.png" alt="BV" style="height:32px;filter:invert(1);mix-blend-mode:screen;opacity:.9" />
+              </div>
+              <div class="lc-title-block">
+                <div class="lc-name">Barbería Vázquez</div>
+                <div class="lc-subtitle">Tarjeta de Fidelidad</div>
+              </div>
+            </div>
+            <div class="lc-stamps" id="lcStamps">
+              <!-- stamps generados por JS -->
+            </div>
+            <div class="lc-bottom">
+              <div class="lc-progress-text" id="lcProgressText">0 de 6 visitas</div>
+              <div class="lc-free-badge" id="lcFreeBadge" style="display:none">
+                🎉 ¡Corte gratis desbloqueado!
+              </div>
+            </div>
+          </div>
+
+          <!-- CONTROLES DEMO -->
+          <div class="lc-controls">
+            <p class="lc-ctrl-label">Así se ve al ir llenando tu tarjeta:</p>
+            <div class="lc-ctrl-btns">
+              <button class="lc-btn-sub" onclick="lcChange(-1)">− Quitar visita</button>
+              <div class="lc-count-display" id="lcCount">0</div>
+              <button class="lc-btn-add" onclick="lcChange(1)">+ Agregar visita</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- COMO FUNCIONA -->
+        <div class="gc-features reveal" style="grid-template-columns:repeat(3,1fr);margin-top:3rem">
+          <div class="gc-feat">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <div>
+              <div class="gc-feat-title">1. Pide tu tarjeta</div>
+              <div class="gc-feat-desc">Solicítala gratis en tu próxima visita a la barbería.</div>
+            </div>
+          </div>
+          <div class="gc-feat">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <div>
+              <div class="gc-feat-title">2. Acumula sellos</div>
+              <div class="gc-feat-desc">Cada visita sumas un sello. En cualquier servicio.</div>
+            </div>
+          </div>
+          <div class="gc-feat">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <div>
+              <div class="gc-feat-title">3. Corte gratis</div>
+              <div class="gc-feat-desc">Al completar 6 sellos, tu siguiente corte es completamente gratis.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gc-cta reveal" style="margin-top:3rem">
+          <p class="gc-cta-text">¿Quieres tu tarjeta de fidelidad?</p>
+          <div class="gc-cta-btns">
+            <a href="https://wa.me/528715181769?text=Hola,%20quiero%20mi%20tarjeta%20de%20fidelidad" target="_blank" class="btn-g">Solicitar por WhatsApp</a>
+            <a href="tel:8715181769" class="gc-btn-call">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="width:15px;height:15px"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              (871) 518-1769
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials">
+      <div class="reveal" style="text-align: center">
+        <div class="sl" style="justify-content: center">Lo que dicen</div>
+        <h2 class="st">Reseñas</h2>
+      </div>
+      <div class="ts-grid reveal">
+        <div class="ts">
+          <div class="ts-q">"</div>
+          <div class="ts-stars">
+            <svg class="si" viewBox="0 0 24 24">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              /></svg
+            ><svg class="si" viewBox="0 0 24 24">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              /></svg
+            ><svg class="si" viewBox="0 0 24 24">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              /></svg
+            ><svg class="si" viewBox="0 0 24 24">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              /></svg
+            ><svg class="si" viewBox="0 0 24 24">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
+          </div>
+          <p class="ts-txt">
+            Llevo 5 años viniendo y nunca me han decepcionado. Rafael tiene una
+            habilidad increíble con la navaja. El ambiente es de primera —
+            siempre me siento bienvenido.
+          </p>
+          <div class="ts-au">
+            <div class="ts-av">JM</div>
+            <div>
+              <div class="ts-n">Jorge Martínez</div>
+              <div class="ts-s">Cliente desde 2019</div>
+            </div>
+          </div>
+        </div>
+        <div class="ts">
+          <div class="ts-q">"</div>
+          <div class="ts-stars">
+            <svg class="si" viewBox="0 0 24 24">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              /></svg
+            ><svg class="si" viewBox="0 0 24 24">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              /></svg
+            ><svg class="si" viewBox="0 0 24 24">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              /></svg
+            ><svg class="si" viewBox="0 0 24 24">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              /></svg
+            ><svg class="si" viewBox="0 0 24 24">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
+          </div>
+          <p class="ts-txt">
+            Probé la Experiencia VIP para mi cumpleaños y quedé impresionado. El
+            masaje facial, el corte perfecto y la atención al detalle hacen que
+            valga cada peso invertido.
+          </p>
+          <div class="ts-au">
+            <div class="ts-av">AL</div>
+            <div>
+              <div class="ts-n">Andrés López</div>
+              <div class="ts-s">Cliente desde 2021</div>
+            </div>
+          </div>
+        </div>
+        <div class="ts">
+          <div class="ts-q">"</div>
+          <div class="ts-stars">
+            <svg class="si" viewBox="0 0 24 24">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              /></svg
+            ><svg class="si" viewBox="0 0 24 24">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              /></svg
+            ><svg class="si" viewBox="0 0 24 24">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              /></svg
+            ><svg class="si" viewBox="0 0 24 24">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              /></svg
+            ><svg class="si" viewBox="0 0 24 24">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
+          </div>
+          <p class="ts-txt">
+            Carlos es un artista con el fade. Le traigo referencias complicadas
+            y siempre las supera. El sistema de reservas en línea es muy
+            práctico, nunca tengo que esperar.
+          </p>
+          <div class="ts-au">
+            <div class="ts-av">RP</div>
+            <div>
+              <div class="ts-n">Ricardo Pérez</div>
+              <div class="ts-s">Cliente desde 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="ts">
+          <div class="ts-q">"</div>
+          <div class="ts-stars">
+            <svg class="si" viewBox="0 0 24 24">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              /></svg
+            ><svg class="si" viewBox="0 0 24 24">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              /></svg
+            ><svg class="si" viewBox="0 0 24 24">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              /></svg
+            ><svg class="si" viewBox="0 0 24 24">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              /></svg
+            ><svg class="si" viewBox="0 0 24 24">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
+          </div>
+          <p class="ts-txt">
+            Miguel diseñó mi barba de una manera que no imaginaba posible. Me
+            escucha, entiende lo que quiero y lo mejora. Los productos que usan
+            son increíbles, duran toda la semana.
+          </p>
+          <div class="ts-au">
+            <div class="ts-av">DG</div>
+            <div>
+              <div class="ts-n">Diego González</div>
+              <div class="ts-s">Cliente desde 2020</div>
+            </div>
+          </div>
+        </div>
+        <div class="ts">
+          <div class="ts-q">"</div>
+          <div class="ts-stars">
+            <svg class="si" viewBox="0 0 24 24">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              /></svg
+            ><svg class="si" viewBox="0 0 24 24">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              /></svg
+            ><svg class="si" viewBox="0 0 24 24">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              /></svg
+            ><svg class="si" viewBox="0 0 24 24">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              /></svg
+            ><svg class="si" viewBox="0 0 24 24">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
+          </div>
+          <p class="ts-txt">
+            Vine por primera vez el mes pasado y ya agendé mi segunda cita. El
+            ambiente es muy relajante, el café está buenísimo y el corte fue
+            exactamente lo que pedí.
+          </p>
+          <div class="ts-au">
+            <div class="ts-av">FR</div>
+            <div>
+              <div class="ts-n">Fernando Ríos</div>
+              <div class="ts-s">Nuevo cliente</div>
+            </div>
+          </div>
+        </div>
+        <div class="ts">
+          <div class="ts-q">"</div>
+          <div class="ts-stars">
+            <svg class="si" viewBox="0 0 24 24">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              /></svg
+            ><svg class="si" viewBox="0 0 24 24">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              /></svg
+            ><svg class="si" viewBox="0 0 24 24">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              /></svg
+            ><svg class="si" viewBox="0 0 24 24">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              /></svg
+            ><svg
+              class="si"
+              style="fill: none; stroke: #7B4A30; stroke-width: 1"
+              viewBox="0 0 24 24"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
+          </div>
+          <p class="ts-txt">
+            Muy buena barbería. El corte quedó excelente y el personal es
+            sumamente amable y profesional. Siempre encuentro un horario que se
+            acomoda a mi agenda sin problema.
+          </p>
+          <div class="ts-au">
+            <div class="ts-av">HV</div>
+            <div>
+              <div class="ts-n">Héctor Vargas</div>
+              <div class="ts-s">Cliente desde 2023</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <div id="stats">
+      <div class="reveal">
+        <div class="stn" data-count="30">0</div>
+        <div class="stl">Años de experiencia</div>
+      </div>
+      <div class="reveal">
+        <div class="stn" data-count="8500">0</div>
+        <div class="stl">Clientes atendidos</div>
+      </div>
+      <div class="reveal">
+        <div class="stn" data-count="98">0</div>
+        <div class="stl">% Satisfacción</div>
+      </div>
+      <div class="reveal">
+        <div class="stn" data-count="6">0</div>
+        <div class="stl">Maestros barberos</div>
+      </div>
+    </div>
+
+    <!-- LOCATION -->
+    <section id="location">
+      <div class="reveal">
+        <div class="mp">
+          <svg class="mp-i" viewBox="0 0 24 24">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+          <div class="mp-a">Blvd. Miguel Alemán 520, Villa Jardín<br />35168 Lerdo, Dgo.</div>
+          <a class="mp-s" href="https://maps.google.com/?q=Blvd.+Miguel+Alem%C3%A1n+520,+Villa+Jard%C3%ADn,+35168+Lerdo,+Dgo" target="_blank" style="color:var(--gold);text-decoration:none;">Ver en Google Maps →</a>
+        </div>
+      </div>
+      <div class="reveal" style="padding-top: 1rem">
+        <div class="sl">Encuéntranos</div>
+        <h2 class="st">Visítanos</h2>
+        <p
+          style="
+            color: var(--gray-light);
+            font-size: 0.87rem;
+            line-height: 1.9;
+            font-weight: 300;
+          "
+        >
+          Nos encuentras sobre el Blvd. Miguel Alemán, en Villa Jardín. Fácil acceso con estacionamiento disponible en la zona.
+        </p>
+        <div class="clist">
+          <div class="ci">
+            <div class="ci-ico">
+              <svg viewBox="0 0 24 24">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+            </div>
+            <div>
+              <div class="ci-l">Dirección</div>
+              <div class="ci-v">Blvd. Miguel Alemán 520, Villa Jardín, 35168 Lerdo, Dgo.</div>
+            </div>
+          </div>
+          <div class="ci">
+            <div class="ci-ico">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"
+                />
+              </svg>
+            </div>
+            <div>
+              <div class="ci-l">Teléfono</div>
+              <div class="ci-v">(871) 518-1769</div>
+            </div>
+          </div>
+          <div class="ci">
+            <div class="ci-ico">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                />
+              </svg>
+            </div>
+            <div>
+              <div class="ci-l">WhatsApp</div>
+              <div class="ci-v">+52 871 518 1769</div>
+            </div>
+          </div>
+          <div class="ci">
+            <div class="ci-ico">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+            </div>
+            <div>
+              <div class="ci-l">Email</div>
+              <div class="ci-v">vazquezbarberia@gmail.com</div>
+            </div>
+          </div>
+          <div class="ci">
+            <div class="ci-ico">
+              <svg viewBox="0 0 24 24">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
+            </div>
+            <div>
+              <div class="ci-l">Instagram</div>
+              <div class="ci-v">@vazquezbarberia</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal" style="margin-top:3rem;">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3594.!2d-103.!3d25.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sBarberia+Vazquez+Lerdo!5e0!3m2!1ses!2smx!4v1"
+          width="100%"
+          height="320"
+          style="border:0;filter:grayscale(1) invert(0.9) contrast(0.9);opacity:0.75;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Ubicación Barbería Vázquez"
+        ></iframe>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div>
+        <div class="ft-logo"><img src="logo.png" alt="Barbería Vázquez" style="height:52px;width:auto;filter:invert(1);mix-blend-mode:screen;" /></div>
+        <p class="ft-tag">
+          El arte del grooming perfecto. Tradición, precisión y
+          estilo en cada corte.
+        </p>
+        <div class="ft-soc">
+          <a href="https://www.instagram.com/vazquezbarberia/" target="_blank" class="sb"
+            ><svg viewBox="0 0 24 24">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg
+          ></a>
+          <a href="https://www.facebook.com/people/Barberia-Vazquez/100063678604808/" target="_blank" class="sb"
+            ><svg viewBox="0 0 24 24">
+              <path
+                d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+              /></svg
+          ></a>
+          <a href="#" class="sb"
+            ><svg viewBox="0 0 24 24">
+              <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" /></svg
+          ></a>
+          <a href="#" class="sb"
+            ><svg viewBox="0 0 24 24">
+              <path
+                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
+              /></svg
+          ></a>
+        </div>
+      </div>
+      <div class="ft-col">
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="#services">Corte Clásico</a></li>
+          <li><a href="#services">Corte + Afeitado</a></li>
+          <li><a href="#services">Diseño de Barba</a></li>
+          <li><a href="#services">Experiencia VIP</a></li>
+          <li><a href="#services">Color & Mechas</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h4>Información</h4>
+        <ul>
+          <li><a href="#about">Nosotros</a></li>
+          <li><a href="#barbers">Nuestro Equipo</a></li>
+          <li><a href="#gallery">Galería</a></li>
+          <li><a href="#testimonials">Reseñas</a></li>
+          <li><a href="#location">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h4>Reservas</h4>
+        <ul>
+          <li><a href="#booking">Reservar Cita</a></li>
+          <li><a href="#">Cancelaciones</a></li>
+          <li><a href="#">Preguntas frecuentes</a></li>
+          <li><a href="#">Gift Cards</a></li>
+        </ul>
+      </div>
+      <div class="ft-bot">
+        <span class="ft-c"
+          >© 2024 Barbería Vázquez. Todos los derechos reservados.</span
+        >
+        <span class="ft-c">Hecho con <span>♦</span> en Lerdo, Dgo.</span>
+      </div>
+    </footer>
+
+    <!-- LIGHTBOX -->
+    <div class="lb" id="lb" onclick="closeLb(event)">
+      <div class="lb-box">
+        <button class="lb-x" onclick="closeLb()">✕</button>
+        <svg
+          class="lb-ico"
+          id="lbIco"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle cx="6" cy="6" r="3" />
+          <circle cx="6" cy="18" r="3" />
+          <line x1="20" y1="4" x2="8.12" y2="15.88" />
+        </svg>
+        <div class="lb-t" id="lbT">Título</div>
+        <p class="lb-s" id="lbS">Descripción</p>
+        <a
+          href="#booking"
+          class="btn-g"
+          onclick="closeLb()"
+          style="font-size: 0.73rem; padding: 0.8rem 2rem; display: inline-flex"
+          >Agendar este estilo</a
+        >
+      </div>
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast">
+      <svg class="toast-i" viewBox="0 0 24 24">
+        <polyline points="20 6 9 17 4 12" />
+      </svg>
+      <span class="toast-t" id="toastT">Mensaje</span>
+    </div>
+
+    </style>
+
+    <!-- Botón flotante -->
+    <button id="bs-chat-btn" onclick="bscToggle()" aria-label="Abrir asistente">
+      <div class="bs-chat-badge" id="bscBadge">1</div>
+      <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    </button>
+
+    <!-- Panel del chat -->
+    <div id="bs-chat-panel">
+      <div class="bsc-head">
+        <div class="bsc-avatar">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <div class="bsc-head-info">
+          <div class="bsc-head-name">Vazco — Asistente</div>
+          <div class="bsc-head-status"><span class="bsc-dot"></span> En línea ahora</div>
+        </div>
+        <button class="bsc-close" onclick="bscToggle()">✕</button>
+      </div>
+
+      <div class="bsc-msgs" id="bscMsgs"></div>
+
+      <div class="bsc-quick" id="bscQuick">
+        <button class="bsc-q-btn" onclick="bscQuick('¿Cuáles son sus horarios?')">Horarios</button>
+        <button class="bsc-q-btn" onclick="bscQuick('¿Qué servicios ofrecen?')">Servicios</button>
+        <button class="bsc-q-btn" onclick="bscQuick('¿Cuánto cuesta un corte?')">Precios</button>
+        <button class="bsc-q-btn" onclick="bscQuick('¿Cómo puedo agendar una cita?')">Reservar</button>
+      </div>
+
+      <div class="bsc-input-row">
+        <input id="bscInput" type="text" placeholder="Escribe tu mensaje..." onkeydown="if(event.key==='Enter')bscSend()" autocomplete="off" />
+        <button id="bscSend" onclick="bscSend()">
+          <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+      </div>
+    </div>
+
+
+    <script src="main.js"></script>
+
+    <!-- ═══════════════════════════
+         ADMIN — BOTÓN OCULTO
+    ═══════════════════════════ -->
+    <button id="adminTrigger" onclick="adminOpenLogin()" title="Administración">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/>
+        <path d="M18 14l2 2 4-4" stroke-width="1.8"/>
+      </svg>
+    </button>
+
+    <!-- ═══════════════════════════
+         ADMIN — LOGIN MODAL
+    ═══════════════════════════ -->
+    <div id="adminLoginModal" onclick="adminCloseLogin(event)">
+      <div class="adm-login-box">
+        <button class="adm-login-x" onclick="adminCloseLogin()">✕</button>
+        <div class="adm-login-logo">Vázquez</div>
+        <div class="adm-login-sub">Panel de Administración</div>
+        <label class="adm-login-label">Usuario</label>
+        <input id="adminUser" class="adm-login-input" type="text" placeholder="admin" autocomplete="username" />
+        <label class="adm-login-label">Contraseña</label>
+        <input id="adminPass" class="adm-login-input" type="password" placeholder="••••••••"
+          onkeydown="if(event.key==='Enter')adminDoLogin()" autocomplete="current-password" />
+        <button class="adm-login-btn" onclick="adminDoLogin()">Ingresar al Panel</button>
+        <div class="adm-login-err" id="adminLoginErr"></div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════
+         ADMIN — PANEL COMPLETO
+    ═══════════════════════════ -->
+    <div id="adminPanel">
+
+      <!-- SIDEBAR -->
+      <aside class="adm-sidebar" id="admSidebar">
+        <div class="adm-sb-header">
+          <div class="adm-sb-logo">Barbería Vázquez</div>
+          <div class="adm-sb-sub">Panel Admin</div>
+        </div>
+        <nav class="adm-sb-nav">
+          <div class="adm-sb-sec">Principal</div>
+          <div class="adm-sb-item active" data-page="adm-dashboard" onclick="admGoto(this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            Dashboard
+          </div>
+          <div class="adm-sb-item" data-page="adm-citas" onclick="admGoto(this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Citas
+            <span id="sbCitasBadge" style="display:none"></span>
+          </div>
+          <div class="adm-sb-sec">Configuración</div>
+          <div class="adm-sb-item" data-page="adm-horarios" onclick="admGoto(this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Horarios
+          </div>
+          <div class="adm-sb-item" data-page="adm-servicios" onclick="admGoto(this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Servicios & Precios
+          </div>
+          <div class="adm-sb-item" data-page="adm-equipo" onclick="admGoto(this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            Equipo
+          </div>
+          <div class="adm-sb-item" data-page="adm-negocio" onclick="admGoto(this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            Info del Negocio
+          </div>
+          <div class="adm-sb-item" data-page="adm-ia" onclick="admGoto(this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Asistente IA
+          </div>
+          <div class="adm-sb-item" data-page="adm-notif" onclick="admGoto(this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            Notificaciones
+          </div>
+        </nav>
+        <div class="adm-sb-footer">
+          <div class="adm-sb-close-panel" onclick="adminClosePanel()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+            Salir del Panel
+          </div>
+        </div>
+      </aside>
+
+      <!-- MOB TOGGLE -->
+      <button class="adm-mob-tog" onclick="admToggleSidebar()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <div class="adm-overlay" id="admOverlay" onclick="admToggleSidebar()"></div>
+
+      <!-- CONTENT -->
+      <div class="adm-main" id="admMain">
+
+        <!-- ── DASHBOARD ── -->
+        <div id="adm-dashboard" class="adm-page active">
+          <div class="adm-pg-head">
+            <div>
+              <div class="adm-pg-title">Dashboard</div>
+              <div class="adm-pg-sub">Resumen general · <span id="admDate"></span></div>
+            </div>
+            <span class="adm-badge">● Sistema activo</span>
+          </div>
+          <div class="adm-grid-3" style="margin-bottom:1.5rem">
+            <div class="adm-card" style="cursor:pointer" onclick="admGotoById('adm-citas')">
+              <div class="adm-card-head">
+                <span class="adm-card-title">Citas recibidas</span>
+                <div class="adm-stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+              </div>
+              <div class="adm-stat-val" id="dashCitasTotal">0</div>
+              <div class="adm-stat-label">reservaciones totales</div>
+              <div style="display:flex;gap:.5rem;margin-top:.8rem;flex-wrap:wrap">
+                <span class="adm-pill" id="dashCitasPendientes" style="background:rgba(201,168,76,.15);color:var(--gold-light)">0 pendientes</span>
+                <span class="adm-pill adm-pill-green" id="dashCitasHoy">0 hoy</span>
+              </div>
+            </div>
+            <div class="adm-card">
+              <div class="adm-card-head">
+                <span class="adm-card-title">Servicios activos</span>
+                <div class="adm-stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/></svg></div>
+              </div>
+              <div class="adm-stat-val">6</div>
+              <div class="adm-stat-label">servicios publicados</div>
+            </div>
+            <div class="adm-card">
+              <div class="adm-card-head">
+                <span class="adm-card-title">Barberos activos</span>
+                <div class="adm-stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+              </div>
+              <div class="adm-stat-val">3</div>
+              <div class="adm-stat-label">en el equipo</div>
+            </div>
+          </div>
+          <div class="adm-grid-2">
+            <div class="adm-card">
+              <div class="adm-card-head"><span class="adm-card-title">Accesos rápidos</span></div>
+              <div style="display:flex;flex-direction:column;gap:.7rem;margin-top:.5rem">
+                <button class="adm-btn adm-btn-ghost" onclick="admGotoById('adm-citas')" style="justify-content:flex-start;gap:.75rem">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="width:15px;height:15px"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                  Ver Citas
+                </button>
+                <button class="adm-btn adm-btn-ghost" onclick="admGotoById('adm-horarios')" style="justify-content:flex-start;gap:.75rem">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="width:15px;height:15px"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  Editar Horarios
+                </button>
+                <button class="adm-btn adm-btn-ghost" onclick="admGotoById('adm-servicios')" style="justify-content:flex-start;gap:.75rem">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="width:15px;height:15px"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/></svg>
+                  Gestionar Servicios
+                </button>
+                <button class="adm-btn adm-btn-ghost" onclick="admGotoById('adm-equipo')" style="justify-content:flex-start;gap:.75rem">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="width:15px;height:15px"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                  Editar Equipo
+                </button>
+                <button class="adm-btn adm-btn-ghost" onclick="admGotoById('adm-negocio')" style="justify-content:flex-start;gap:.75rem">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="width:15px;height:15px"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                  Info del Negocio
+                </button>
+              </div>
+            </div>
+            <div class="adm-card">
+              <div class="adm-card-head"><span class="adm-card-title">Estado del sistema</span></div>
+              <div style="display:flex;flex-direction:column;gap:1rem;margin-top:.5rem">
+                <div class="adm-status-row">
+                  <span class="adm-status-dot green"></span>
+                  <span class="adm-status-label">Sitio web</span>
+                  <span class="adm-pill adm-pill-green">Activo</span>
+                </div>
+                <div class="adm-status-row">
+                  <span class="adm-status-dot green"></span>
+                  <span class="adm-status-label">Chat IA (Vazco)</span>
+                  <span class="adm-pill adm-pill-green">En línea</span>
+                </div>
+                <div class="adm-status-row">
+                  <span class="adm-status-dot green"></span>
+                  <span class="adm-status-label">Formulario de citas</span>
+                  <span class="adm-pill adm-pill-green">Funcionando</span>
+                </div>
+                <div class="adm-status-row">
+                  <span class="adm-status-dot green"></span>
+                  <span class="adm-status-label">Horarios visibles</span>
+                  <span class="adm-pill adm-pill-gold">Publicados</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── CITAS ── -->
+        <div id="adm-citas" class="adm-page">
+          <div class="adm-pg-head">
+            <div>
+              <div class="adm-pg-title">Citas</div>
+              <div class="adm-pg-sub">Reservaciones recibidas desde el formulario</div>
+            </div>
+          </div>
+          <div class="adm-card">
+            <div class="adm-card-head">
+              <span class="adm-card-title">Reservaciones</span>
+              <div style="display:flex;gap:.6rem;align-items:center;flex-wrap:wrap">
+                <select class="adm-form-select" id="citasFiltro" style="padding:.3rem .7rem;font-size:.75rem;width:auto" onchange="admRenderCitas()">
+                  <option value="">Todas</option>
+                  <option value="Pendiente">Pendientes</option>
+                  <option value="Confirmada">Confirmadas</option>
+                  <option value="Completada">Completadas</option>
+                  <option value="Cancelada">Canceladas</option>
+                </select>
+                <button class="adm-btn adm-btn-ghost adm-btn-sm" onclick="admClearCitas()">Limpiar todo</button>
+              </div>
+            </div>
+            <div class="adm-table-wrap" id="admCitasTable">
+              <div style="text-align:center;padding:3rem 0;color:var(--gray-mid);font-size:.85rem">
+                Aún no hay citas registradas. Las citas del formulario aparecerán aquí.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── HORARIOS ── -->
+        <div id="adm-horarios" class="adm-page">
+          <div class="adm-pg-head">
+            <div>
+              <div class="adm-pg-title">Horarios</div>
+              <div class="adm-pg-sub">Define los días y rangos de atención</div>
+            </div>
+            <button class="adm-btn adm-btn-primary" onclick="admSaveHorarios()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="width:13px;height:13px"><polyline points="20 6 9 17 4 12"/></svg>
+              Guardar cambios
+            </button>
+          </div>
+          <div class="adm-card">
+            <p class="adm-sec-desc">Configura los horarios de apertura para cada día. Desactiva el toggle para marcar el día como cerrado.</p>
+            <div id="admHorariosRows"></div>
+          </div>
+        </div>
+
+        <!-- ── SERVICIOS ── -->
+        <div id="adm-servicios" class="adm-page">
+          <div class="adm-pg-head">
+            <div>
+              <div class="adm-pg-title">Servicios & Precios</div>
+              <div class="adm-pg-sub">Administra el catálogo de servicios</div>
+            </div>
+            <button class="adm-btn adm-btn-primary" onclick="admAddServicio()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="width:13px;height:13px"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              Nuevo Servicio
+            </button>
+          </div>
+          <div class="adm-card">
+            <p class="adm-sec-desc">Edita nombre, precio, duración y descripción de cada servicio. Los cambios se reflejan en el sistema de reservas.</p>
+            <div id="admServiciosList"></div>
+          </div>
+        </div>
+
+        <!-- ── EQUIPO ── -->
+        <div id="adm-equipo" class="adm-page">
+          <div class="adm-pg-head">
+            <div>
+              <div class="adm-pg-title">Equipo</div>
+              <div class="adm-pg-sub">Gestiona a los barberos del equipo</div>
+            </div>
+            <button class="adm-btn adm-btn-primary" onclick="admAddBarbero()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="width:13px;height:13px"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              Agregar Barbero
+            </button>
+          </div>
+          <div id="admEquipoList"></div>
+        </div>
+
+        <!-- ── INFO NEGOCIO ── -->
+        <div id="adm-negocio" class="adm-page">
+          <div class="adm-pg-head">
+            <div>
+              <div class="adm-pg-title">Info del Negocio</div>
+              <div class="adm-pg-sub">Datos de contacto y ubicación</div>
+            </div>
+            <button class="adm-btn adm-btn-primary" onclick="admSaveNegocio()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="width:13px;height:13px"><polyline points="20 6 9 17 4 12"/></svg>
+              Guardar cambios
+            </button>
+          </div>
+          <div class="adm-grid-2">
+            <div class="adm-card">
+              <div class="adm-card-head"><span class="adm-card-title">Datos del negocio</span></div>
+              <div class="adm-form-group">
+                <label class="adm-form-label">Nombre del negocio</label>
+                <input class="adm-form-input" id="negNombre" value="Barbería Vázquez" />
+              </div>
+              <div class="adm-form-group">
+                <label class="adm-form-label">Dirección</label>
+                <input class="adm-form-input" id="negDireccion" value="Blvd. Miguel Alemán 520, Villa Jardín, 35168 Lerdo, Dgo." />
+              </div>
+              <div class="adm-form-group">
+                <label class="adm-form-label">Teléfono</label>
+                <input class="adm-form-input" id="negTelefono" value="(871) 518-1769" />
+              </div>
+              <div class="adm-form-group">
+                <label class="adm-form-label">WhatsApp</label>
+                <input class="adm-form-input" id="negWhatsapp" value="+52 871 518 1769" />
+              </div>
+            </div>
+            <div class="adm-card">
+              <div class="adm-card-head"><span class="adm-card-title">Redes sociales</span></div>
+              <div class="adm-form-group">
+                <label class="adm-form-label">Instagram</label>
+                <input class="adm-form-input" id="negIg" value="@vazquezbarberia" />
+              </div>
+              <div class="adm-form-group">
+                <label class="adm-form-label">Facebook</label>
+                <input class="adm-form-input" id="negFb" value="Barberia Vazquez" />
+              </div>
+              <div class="adm-form-group">
+                <label class="adm-form-label">Email</label>
+                <input class="adm-form-input" id="negEmail" value="vazquezbarberia@gmail.com" />
+              </div>
+              <div class="adm-form-group">
+                <label class="adm-form-label">Slogan / Tagline</label>
+                <input class="adm-form-input" id="negSlogan" value="El arte del grooming perfecto." />
+              </div>
+            </div>
+          </div>
+          <div class="adm-card" style="margin-top:1.5rem">
+            <div class="adm-card-head"><span class="adm-card-title">Políticas de reserva</span></div>
+            <div class="adm-grid-2">
+              <div class="adm-form-group">
+                <label class="adm-form-label">Anticipación mínima (horas)</label>
+                <input class="adm-form-input" id="negAnticipacion" type="number" value="24" min="0" max="72" />
+                <div class="adm-form-hint">Horas de aviso mínimo para agendar</div>
+              </div>
+              <div class="adm-form-group">
+                <label class="adm-form-label">Cancelación gratuita hasta (horas antes)</label>
+                <input class="adm-form-input" id="negCancelacion" type="number" value="2" min="0" max="48" />
+                <div class="adm-form-hint">Ventana de cancelación sin cargo</div>
+              </div>
+            </div>
+            <div class="adm-form-group">
+              <label class="adm-form-label">Notas de política adicionales</label>
+              <textarea class="adm-form-textarea" id="negPolitica" rows="3">Se aceptan walk-ins según disponibilidad. Pago en efectivo y tarjeta.</textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── IA ── -->
+        <div id="adm-ia" class="adm-page">
+          <div class="adm-pg-head">
+            <div>
+              <div class="adm-pg-title">Asistente IA — Vazco</div>
+              <div class="adm-pg-sub">Configura la personalidad y conocimiento del chatbot</div>
+            </div>
+            <button class="adm-btn adm-btn-primary" onclick="admSaveIA()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="width:13px;height:13px"><polyline points="20 6 9 17 4 12"/></svg>
+              Guardar cambios
+            </button>
+          </div>
+          <div class="adm-card" style="margin-bottom:1.5rem">
+            <div class="adm-card-head"><span class="adm-card-title">Nombre y personalidad</span></div>
+            <div class="adm-grid-2">
+              <div class="adm-form-group">
+                <label class="adm-form-label">Nombre del asistente</label>
+                <input class="adm-form-input" id="iaNombre" value="Vazco" />
+              </div>
+              <div class="adm-form-group">
+                <label class="adm-form-label">Tono de comunicación</label>
+                <select class="adm-form-select" id="iaTono">
+                  <option value="profesional y amigable" selected>Profesional y amigable</option>
+                  <option value="muy formal">Muy formal</option>
+                  <option value="casual y cercano">Casual y cercano</option>
+                  <option value="elegante y refinado">Elegante y refinado</option>
+                </select>
+              </div>
+            </div>
+            <div class="adm-form-group">
+              <label class="adm-form-label">Mensaje de bienvenida</label>
+              <input class="adm-form-input" id="iaBienvenida" value="¡Bienvenido a Barbería Vázquez! Soy Vazco, tu asistente. ¿En qué puedo ayudarte hoy?" />
+            </div>
+          </div>
+          <div class="adm-card" style="margin-bottom:1.5rem">
+            <div class="adm-card-head"><span class="adm-card-title">Botones de respuesta rápida</span></div>
+            <p class="adm-sec-desc" style="margin-bottom:1rem">Estos son los botones que aparecen al abrir el chat.</p>
+            <div id="iaQuickBtns" style="display:flex;flex-direction:column;gap:.7rem"></div>
+            <button class="adm-btn adm-btn-ghost" style="margin-top:1rem" onclick="admAddQuickBtn()">+ Agregar botón</button>
+          </div>
+          <div class="adm-card">
+            <div class="adm-card-head"><span class="adm-card-title">System prompt (avanzado)</span></div>
+            <p class="adm-sec-desc" style="margin-bottom:1rem">Instrucciones base que guían el comportamiento de Vazco. Edita con cuidado.</p>
+            <textarea class="adm-form-textarea" id="iaSystemPrompt" rows="14" style="font-family:var(--fm);font-size:.75rem;line-height:1.7"></textarea>
+          </div>
+        </div>
+
+
+        <!-- ── NOTIFICACIONES ── -->
+        <div id="adm-notif" class="adm-page">
+          <div class="adm-pg-head">
+            <div>
+              <div class="adm-pg-title">Notificaciones Push</div>
+              <div class="adm-pg-sub">Envía avisos directos a los clientes suscritos</div>
+            </div>
+            <div id="admNotifStatus" class="adm-badge">Cargando...</div>
+          </div>
+
+          <!-- STATS -->
+          <div class="adm-grid-3" style="margin-bottom:1.5rem">
+            <div class="adm-card">
+              <div class="adm-card-head"><span class="adm-card-title">Suscriptores</span>
+                <div class="adm-stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+              </div>
+              <div class="adm-stat-val" id="admSubCount">0</div>
+              <div class="adm-stat-label">clientes suscritos</div>
+            </div>
+            <div class="adm-card">
+              <div class="adm-card-head"><span class="adm-card-title">Enviadas hoy</span>
+                <div class="adm-stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
+              </div>
+              <div class="adm-stat-val" id="admSentToday">0</div>
+              <div class="adm-stat-label">notificaciones enviadas</div>
+            </div>
+            <div class="adm-card">
+              <div class="adm-card-head"><span class="adm-card-title">Permiso del navegador</span>
+                <div class="adm-stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+              </div>
+              <div class="adm-stat-val" id="admPermStatus" style="font-size:1.1rem;padding-top:.8rem">—</div>
+              <div class="adm-stat-label">estado actual</div>
+            </div>
+          </div>
+
+          <div class="adm-grid-2">
+            <!-- ENVIAR NOTIFICACION -->
+            <div class="adm-card">
+              <div class="adm-card-head"><span class="adm-card-title">Enviar notificación</span></div>
+              <div class="adm-form-group">
+                <label class="adm-form-label">Título</label>
+                <input class="adm-form-input" id="notifTitle" placeholder="ej. ¡Nuevo horario!" />
+              </div>
+              <div class="adm-form-group">
+                <label class="adm-form-label">Mensaje</label>
+                <textarea class="adm-form-textarea" id="notifBody" rows="3" placeholder="ej. Hemos actualizado nuestros horarios. Ahora abrimos los domingos hasta las 4 PM."></textarea>
+              </div>
+              <div class="adm-form-group">
+                <label class="adm-form-label">Ícono</label>
+                <select class="adm-form-select" id="notifIcon">
+                  <option value="clock">🕐 Cambio de horario</option>
+                  <option value="scissors">✂️ Nuevo servicio</option>
+                  <option value="gift">🎁 Promoción especial</option>
+                  <option value="star">⭐ Anuncio general</option>
+                  <option value="alert">🔔 Aviso importante</option>
+                </select>
+              </div>
+              <div style="display:flex;gap:.8rem;margin-top:.5rem">
+                <button class="adm-btn adm-btn-ghost" onclick="admTestNotif()" style="flex:1">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="width:13px;height:13px"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                  Probar
+                </button>
+                <button class="adm-btn adm-btn-primary" onclick="admSendNotif()" style="flex:2">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="width:13px;height:13px"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                  Enviar a todos los suscritos
+                </button>
+              </div>
+            </div>
+
+            <!-- PLANTILLAS RAPIDAS -->
+            <div class="adm-card">
+              <div class="adm-card-head"><span class="adm-card-title">Plantillas rápidas</span></div>
+              <p class="adm-sec-desc" style="margin-bottom:1rem">Un clic para cargar el mensaje.</p>
+              <div style="display:flex;flex-direction:column;gap:.6rem">
+                <div class="adm-notif-tpl" onclick="admLoadTpl('horario')">
+                  <div class="adm-tpl-icon">🕐</div>
+                  <div><div class="adm-tpl-title">Cambio de horario</div><div class="adm-tpl-desc">Avisa cuando cambian los días u horas</div></div>
+                </div>
+                <div class="adm-notif-tpl" onclick="admLoadTpl('promo')">
+                  <div class="adm-tpl-icon">🎁</div>
+                  <div><div class="adm-tpl-title">Promoción especial</div><div class="adm-tpl-desc">Descuento o servicio con precio especial</div></div>
+                </div>
+                <div class="adm-notif-tpl" onclick="admLoadTpl('nuevo')">
+                  <div class="adm-tpl-icon">✂️</div>
+                  <div><div class="adm-tpl-title">Nuevo servicio</div><div class="adm-tpl-desc">Anuncia un servicio recién agregado</div></div>
+                </div>
+                <div class="adm-notif-tpl" onclick="admLoadTpl('cierre')">
+                  <div class="adm-tpl-icon">🔔</div>
+                  <div><div class="adm-tpl-title">Cierre temporal</div><div class="adm-tpl-desc">Avisa de días no laborales o vacaciones</div></div>
+                </div>
+                <div class="adm-notif-tpl" onclick="admLoadTpl('recordatorio')">
+                  <div class="adm-tpl-icon">⭐</div>
+                  <div><div class="adm-tpl-title">Recordatorio de cita</div><div class="adm-tpl-desc">Recuerda a los clientes su próxima visita</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- HISTORIAL -->
+          <div class="adm-card" style="margin-top:1.5rem">
+            <div class="adm-card-head">
+              <span class="adm-card-title">Historial de notificaciones</span>
+              <button class="adm-btn adm-btn-ghost adm-btn-sm" onclick="admClearNotifHistory()">Limpiar</button>
+            </div>
+            <div id="admNotifHistory">
+              <div style="text-align:center;padding:2rem 0;color:var(--gray-mid);font-size:.82rem">Aún no se han enviado notificaciones.</div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /adm-main -->
+    </div><!-- /adminPanel -->
+
+    <!-- MODAL SERVICIO -->
+    <div id="admSvcModal" onclick="admCloseSvcModal(event)">
+      <div class="adm-modal-box">
+        <button class="adm-modal-x" onclick="admCloseSvcModal()">✕</button>
+        <div class="adm-modal-title" id="admSvcModalTitle">Nuevo Servicio</div>
+        <div class="adm-form-group">
+          <label class="adm-form-label">Nombre del servicio</label>
+          <input class="adm-form-input" id="svcNombre" placeholder="ej. Corte Clásico" />
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+          <div class="adm-form-group">
+            <label class="adm-form-label">Precio (MXN)</label>
+            <input class="adm-form-input" id="svcPrecio" type="number" placeholder="150" />
+          </div>
+          <div class="adm-form-group">
+            <label class="adm-form-label">Duración (min)</label>
+            <input class="adm-form-input" id="svcDuracion" type="number" placeholder="45" />
+          </div>
+        </div>
+        <div class="adm-form-group">
+          <label class="adm-form-label">Descripción</label>
+          <textarea class="adm-form-textarea" id="svcDesc" rows="3" placeholder="Breve descripción del servicio..."></textarea>
+        </div>
+        <div style="display:flex;gap:.8rem;justify-content:flex-end;margin-top:1.2rem">
+          <button class="adm-btn adm-btn-ghost" onclick="admCloseSvcModal()">Cancelar</button>
+          <button class="adm-btn adm-btn-primary" onclick="admSaveSvc()">Guardar servicio</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL BARBERO -->
+    <div id="admBrbModal" onclick="admCloseBrbModal(event)">
+      <div class="adm-modal-box">
+        <button class="adm-modal-x" onclick="admCloseBrbModal()">✕</button>
+        <div class="adm-modal-title" id="admBrbModalTitle">Nuevo Barbero</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+          <div class="adm-form-group">
+            <label class="adm-form-label">Nombre completo</label>
+            <input class="adm-form-input" id="brbNombre" placeholder="ej. Rafael Medina" />
+          </div>
+          <div class="adm-form-group">
+            <label class="adm-form-label">Rol / Especialidad</label>
+            <input class="adm-form-input" id="brbRol" placeholder="ej. Especialista en Fades" />
+          </div>
+        </div>
+        <div class="adm-form-group">
+          <label class="adm-form-label">Biografía</label>
+          <textarea class="adm-form-textarea" id="brbBio" rows="3" placeholder="Descripción breve del barbero..."></textarea>
+        </div>
+        <div class="adm-form-group">
+          <label class="adm-form-label">Especialidades (separadas por coma)</label>
+          <input class="adm-form-input" id="brbTags" placeholder="ej. Skin fade, Diseños, Urban style" />
+        </div>
+        <div style="display:flex;gap:.8rem;justify-content:flex-end;margin-top:1.2rem">
+          <button class="adm-btn adm-btn-ghost" onclick="admCloseBrbModal()">Cancelar</button>
+          <button class="adm-btn adm-btn-primary" onclick="admSaveBrb()">Guardar barbero</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ADMIN TOAST -->
+    <div id="admToast">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" style="width:15px;height:15px;stroke:var(--gold-light);flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>
+      <span id="admToastMsg">Guardado</span>
+    </div>
+
+
+    <!-- PUSH SUBSCRIBE BANNER -->
+    <div id="pushBanner">
+      <div class="push-icon">🔔</div>
+      <div class="push-text">
+        <div class="push-title">Activa las notificaciones</div>
+        <div class="push-sub">Recibe avisos de cambios de horario y promociones</div>
+      </div>
+      <button class="push-allow" onclick="pushRequestPermission()">Activar</button>
+      <button class="push-dismiss" onclick="pushDismiss()">✕</button>
+    </div>
+
+    <script src="admin.js"></script>
+  </body>
+</html>
