@@ -2423,10 +2423,19 @@ footer {
   display: flex;
   z-index: 8000;
   transform: translateX(100%);
-  transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    transform 0.4s cubic-bezier(0.76, 0, 0.24, 1),
+    visibility 0s linear 0.4s;
 }
 #adminPanel.open {
   transform: none;
+  visibility: visible;
+  pointer-events: all;
+  transition:
+    transform 0.4s cubic-bezier(0.76, 0, 0.24, 1),
+    visibility 0s linear 0s;
 }
 
 /* SIDEBAR */
@@ -3906,11 +3915,4 @@ footer {
 body:has(#adminPanel.open) nav,
 body:has(#adminPanel.open) .mob {
   display: none !important;
-}
-/* Evitar activación accidental del admin en móvil */
-@media (max-width: 768px) {
-  #adminTrigger {
-    opacity: 0 !important;
-    pointer-events: none !important;
-  }
 }
