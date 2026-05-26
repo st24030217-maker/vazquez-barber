@@ -35,6 +35,7 @@ self.addEventListener("push", (e) => {
     body: data.body || "",
     icon: "/logo.png",
     badge: "/logo.png",
+    image: "/logo.png",
     tag: "bv-notif-" + Date.now(),
     data: { url: data.url || "/" },
     vibrate: [200, 100, 200],
