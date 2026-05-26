@@ -2425,17 +2425,13 @@ footer {
   transform: translateX(100%);
   visibility: hidden;
   pointer-events: none;
-  transition:
-    transform 0.4s cubic-bezier(0.76, 0, 0.24, 1),
-    visibility 0s linear 0.4s;
+  transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1), visibility 0s linear 0.4s;
 }
 #adminPanel.open {
   transform: none;
   visibility: visible;
   pointer-events: all;
-  transition:
-    transform 0.4s cubic-bezier(0.76, 0, 0.24, 1),
-    visibility 0s linear 0s;
+  transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1), visibility 0s linear 0s;
 }
 
 /* SIDEBAR */
@@ -3915,4 +3911,180 @@ footer {
 body:has(#adminPanel.open) nav,
 body:has(#adminPanel.open) .mob {
   display: none !important;
+}
+
+/* ══════════════════════════════════════
+   ADMIN — MEJORAS MÓVIL
+══════════════════════════════════════ */
+
+/* Ocultar trigger admin en móvil para evitar activación accidental */
+@media (max-width: 768px) {
+  #adminTrigger {
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+}
+
+/* Scroll táctil suave en sidebar y contenido admin */
+.adm-sidebar,
+.adm-main {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+/* Scrollbar más visible en el sidebar */
+.adm-sidebar::-webkit-scrollbar {
+  width: 3px;
+}
+.adm-sidebar::-webkit-scrollbar-thumb {
+  background: rgba(123, 74, 48, 0.4);
+  border-radius: 3px;
+}
+
+/* En móvil: sidebar con scroll independiente y barra inferior de navegación */
+@media (max-width: 860px) {
+
+  /* Sidebar ocupa toda la pantalla cuando está abierto */
+  .adm-sidebar {
+    width: 75vw;
+    max-width: 300px;
+    height: 100%;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Main scrolleable con espacio para barra inferior */
+  .adm-main {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 6rem;
+    height: 100vh;
+  }
+
+  /* Barra de navegación inferior fija para el admin */
+  .adm-bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 8100;
+    background: var(--dark2);
+    border-top: 1px solid rgba(123, 74, 48, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0.5rem 0 calc(0.5rem + env(safe-area-inset-bottom));
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+  }
+
+  .adm-bottom-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.4rem 0.8rem;
+    border: none;
+    background: none;
+    color: var(--gray-mid);
+    font-family: var(--fm);
+    font-size: 0.55rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color 0.2s;
+    min-width: 56px;
+    min-height: 44px;
+    justify-content: center;
+  }
+
+  .adm-bottom-nav-item svg {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .adm-bottom-nav-item.active {
+    color: var(--gold-light);
+  }
+
+  .adm-bottom-nav-item:hover {
+    color: var(--cream);
+  }
+
+  /* Ocultar sidebar nav en móvil — se usa la barra inferior */
+  #adminPanel .adm-sb-nav {
+    display: block; /* mantener por si el sidebar se abre manualmente */
+  }
+
+  /* Cards del admin con más espacio entre dedos */
+  .adm-card {
+    margin-bottom: 1rem;
+  }
+
+  /* Botones del admin más altos para touch */
+  .adm-btn {
+    min-height: 42px;
+    padding-top: 0.65rem;
+    padding-bottom: 0.65rem;
+  }
+
+  /* Inputs más altos */
+  .adm-form-input,
+  .adm-form-select,
+  .adm-form-textarea {
+    font-size: 16px !important; /* evita zoom en iOS */
+    min-height: 44px;
+  }
+
+  /* Tabla de citas scrolleable horizontalmente */
+  .adm-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -1rem;
+    padding: 0 1rem;
+  }
+
+  /* Modales a pantalla completa en móvil */
+  #admSvcModal .adm-modal-box,
+  #admBrbModal .adm-modal-box {
+    width: calc(100vw - 2rem);
+    max-height: 85vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 1rem;
+  }
+
+  /* Grid de 2 columnas en modales → 1 columna */
+  .adm-modal-box [style*="grid-template-columns: 1fr 1fr"],
+  .adm-modal-box [style*="grid-template-columns:1fr 1fr"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+}
+
+@media (max-width: 500px) {
+  .adm-sidebar {
+    width: 85vw;
+  }
+
+  .adm-bottom-nav-item {
+    font-size: 0.5rem;
+    padding: 0.35rem 0.5rem;
+  }
+
+  .adm-pg-title {
+    font-size: 1.2rem;
+  }
+
+  /* Stats en 2×2 */
+  .adm-stats-row {
+    grid-template-columns: 1fr 1fr !important;
+  }
 }

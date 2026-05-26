@@ -136,6 +136,7 @@ function adminDoLogin() {
   if (u === ADMIN_CREDS.user && p === ADMIN_CREDS.pass) {
     document.getElementById("adminLoginModal").classList.remove("open");
     document.getElementById("adminPanel").classList.add("open");
+    admInjectBottomNav();
     // Ocultar nav y menú móvil del sitio principal
     const siteNav = document.getElementById("nav");
     const siteMob = document.getElementById("mob");
@@ -809,11 +810,37 @@ function admUpdatePermStatus() {
 
 /* ── Solicitar permiso (desde sitio público) ── */
 window.pushRequestPermission = async function () {
-  const result = await Notification.requestPermission();
+  // iOS Safari requiere que el SW esté registrado antes de pedir permiso
+  if (!window._swReg) {
+    try {
+      const reg = await navigator.serviceWorker.register("sw.js");
+      window._swReg = reg;
+      await navigator.serviceWorker.ready;
+    } catch (e) {
+      console.warn("SW no disponible:", e);
+    }
+  }
+
+  // En iOS el permiso debe pedirse directamente desde el tap del usuario
+  let result;
+  try {
+    result = await Notification.requestPermission();
+  } catch (e) {
+    // Fallback para navegadores que usan callback en lugar de Promise
+    result = await new Promise((resolve) =>
+      Notification.requestPermission(resolve),
+    );
+  }
+
   if (result === "granted") {
     pushSubscribe();
     pushDismiss();
-    showToast && showToast("¡Notificaciones activadas!");
+    typeof showToast === "function" &&
+      showToast("¡Notificaciones activadas! 🔔");
+  } else if (result === "denied") {
+    pushDismiss();
+    typeof showToast === "function" &&
+      showToast("Notificaciones bloqueadas en ajustes");
   } else {
     pushDismiss();
   }
@@ -1051,3 +1078,59 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }, 4000);
 });
+
+/* ── Barra de navegación inferior para móvil ── */
+function admInjectBottomNav() {
+  if (document.getElementById("admBottomNav")) return;
+  const pages = [
+    {
+      id: "pgDashboard",
+      label: "Inicio",
+      icon: '<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>',
+    },
+    {
+      id: "pgCitas",
+      label: "Citas",
+      icon: '<rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>',
+    },
+    {
+      id: "pgServicios",
+      label: "Servicios",
+      icon: '<circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/>',
+    },
+    {
+      id: "pgEquipo",
+      label: "Equipo",
+      icon: '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+    },
+    {
+      id: "pgNotifs",
+      label: "Avisos",
+      icon: '<path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/>',
+    },
+  ];
+
+  const nav = document.createElement("div");
+  nav.id = "admBottomNav";
+  nav.className = "adm-bottom-nav";
+
+  pages.forEach(({ id, icon, label }) => {
+    const btn = document.createElement("button");
+    btn.className = "adm-bottom-nav-item";
+    btn.setAttribute("data-page", id);
+    btn.innerHTML =
+      '<svg viewBox="0 0 24 24">' + icon + "</svg><span>" + label + "</span>";
+    btn.addEventListener("click", () => {
+      admGotoById(id);
+      nav
+        .querySelectorAll(".adm-bottom-nav-item")
+        .forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+    });
+    nav.appendChild(btn);
+  });
+
+  const first = nav.querySelector(".adm-bottom-nav-item");
+  if (first) first.classList.add("active");
+  document.getElementById("adminPanel").appendChild(nav);
+}
