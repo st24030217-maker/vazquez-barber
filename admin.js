@@ -810,37 +810,31 @@ function admUpdatePermStatus() {
 
 /* ── Solicitar permiso (desde sitio público) ── */
 window.pushRequestPermission = async function () {
-  // iOS Safari requiere que el SW esté registrado antes de pedir permiso
+  if (isIOS() && !isIOSPWA()) {
+    pushDismiss();
+    return;
+  }
   if (!window._swReg) {
     try {
       const reg = await navigator.serviceWorker.register("sw.js");
       window._swReg = reg;
       await navigator.serviceWorker.ready;
     } catch (e) {
-      console.warn("SW no disponible:", e);
+      console.warn("SW error:", e);
     }
   }
-
-  // En iOS el permiso debe pedirse directamente desde el tap del usuario
   let result;
   try {
     result = await Notification.requestPermission();
-  } catch (e) {
-    // Fallback para navegadores que usan callback en lugar de Promise
+  } catch {
     result = await new Promise((resolve) =>
       Notification.requestPermission(resolve),
     );
   }
-
   if (result === "granted") {
     pushSubscribe();
     pushDismiss();
-    typeof showToast === "function" &&
-      showToast("¡Notificaciones activadas! 🔔");
-  } else if (result === "denied") {
-    pushDismiss();
-    typeof showToast === "function" &&
-      showToast("Notificaciones bloqueadas en ajustes");
+    typeof showToast === "function" && showToast("Notificaciones activadas!");
   } else {
     pushDismiss();
   }
@@ -1068,18 +1062,42 @@ window.pushDismiss = function () {
   }
 };
 
+/* ── Detectar iOS ── */
+function isIOS() {
+  return (
+    /iphone|ipad|ipod/i.test(navigator.userAgent) ||
+    (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1)
+  );
+}
+function isIOSPWA() {
+  return isIOS() && window.navigator.standalone === true;
+}
+
 /* Mostrar banner después de 4 segundos si no ha dado permiso */
 window.addEventListener("DOMContentLoaded", () => {
   pushInit();
   setTimeout(() => {
+    const b = document.getElementById("pushBanner");
+    if (!b) return;
+    if (isIOS() && !isIOSPWA()) {
+      b.classList.add("show");
+      const title = b.querySelector(".push-title");
+      const sub = b.querySelector(".push-sub");
+      const btn = b.querySelector(".push-allow");
+      if (title) title.textContent = "Instala la app para recibir avisos";
+      if (sub)
+        sub.textContent = 'Toca Compartir → "Añadir a inicio" y abre desde ahí';
+      if (btn) btn.style.display = "none";
+      return;
+    }
+    if (!("Notification" in window)) return;
     if (Notification.permission === "default") {
-      const b = document.getElementById("pushBanner");
-      if (b) b.classList.add("show");
+      b.classList.add("show");
     }
   }, 4000);
 });
 
-/* ── Barra de navegación inferior para móvil ── */
+/* ── Barra navegación inferior móvil ── */
 function admInjectBottomNav() {
   if (document.getElementById("admBottomNav")) return;
   const pages = [
@@ -1109,28 +1127,29 @@ function admInjectBottomNav() {
       icon: '<path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/>',
     },
   ];
-
   const nav = document.createElement("div");
   nav.id = "admBottomNav";
   nav.className = "adm-bottom-nav";
-
-  pages.forEach(({ id, icon, label }) => {
-    const btn = document.createElement("button");
+  pages.forEach(function (p) {
+    var btn = document.createElement("button");
     btn.className = "adm-bottom-nav-item";
-    btn.setAttribute("data-page", id);
+    btn.setAttribute("data-page", p.id);
     btn.innerHTML =
-      '<svg viewBox="0 0 24 24">' + icon + "</svg><span>" + label + "</span>";
-    btn.addEventListener("click", () => {
-      admGotoById(id);
-      nav
-        .querySelectorAll(".adm-bottom-nav-item")
-        .forEach((b) => b.classList.remove("active"));
+      '<svg viewBox="0 0 24 24">' +
+      p.icon +
+      "</svg><span>" +
+      p.label +
+      "</span>";
+    btn.addEventListener("click", function () {
+      admGotoById(p.id);
+      nav.querySelectorAll(".adm-bottom-nav-item").forEach(function (b) {
+        b.classList.remove("active");
+      });
       btn.classList.add("active");
     });
     nav.appendChild(btn);
   });
-
-  const first = nav.querySelector(".adm-bottom-nav-item");
+  var first = nav.querySelector(".adm-bottom-nav-item");
   if (first) first.classList.add("active");
   document.getElementById("adminPanel").appendChild(nav);
 }
