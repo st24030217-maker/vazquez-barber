@@ -912,12 +912,17 @@ window.admTestNotif = async function () {
 };
 
 /* ── Enviar a todos los suscritos ── */
+/* ── Credenciales OneSignal ── */
+const ONESIGNAL_APP_ID = "303245fa-0799-457f-b82b-4016fb8704d3";
+const ONESIGNAL_API_KEY =
+  "os_v2_app_gazel6qhtfcx7oblialpxbye2pcuhuo3bcke5mmbi6sxwkvkqpnxnlne7w7luaosnlu3k4xoanzdfrqjf73mkop4pbzca543gh76ziy"; // ← pega aquí tu REST API Key de OneSignal
+
 window.admSendNotif = async function () {
   const title = document.getElementById("notifTitle").value.trim();
   const body = document.getElementById("notifBody").value.trim();
   const icon = document.getElementById("notifIcon").value;
   if (!title || !body) {
-    alert("Escribe título y mensaje primero");
+    admToast("Escribe título y mensaje primero");
     return;
   }
 
@@ -929,38 +934,63 @@ window.admSendNotif = async function () {
     alert: "🔔",
   };
 
-  // En un sitio real con servidor, aquí enviarías a cada suscriptor vía Web Push API.
-  // En modo local/demo: muestra notificación local para el admin y registra en historial.
-  const perm = await Notification.requestPermission();
-  if (perm === "granted" && window._swReg) {
-    window._swReg.showNotification((iconMap[icon] || "🔔") + " " + title, {
-      body,
-      icon: "logo.png",
-      vibrate: [200, 100, 200],
+  const emoji = iconMap[icon] || "🔔";
+
+  admToast("Enviando notificación...");
+
+  try {
+    const res = await fetch("https://onesignal.com/api/v1/notifications", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Key " + ONESIGNAL_API_KEY,
+      },
+      body: JSON.stringify({
+        app_id: ONESIGNAL_APP_ID,
+        included_segments: ["Total Subscriptions"],
+        headings: { en: emoji + " " + title },
+        contents: { en: body },
+        chrome_web_icon: "https://vazquez-barber.vercel.app/logo.png",
+        chrome_web_badge: "https://vazquez-barber.vercel.app/logo.png",
+        url: "https://vazquez-barber.vercel.app",
+      }),
     });
+
+    const data = await res.json();
+
+    if (data.id) {
+      // Registrar en historial
+      const entry = {
+        title,
+        body,
+        icon,
+        ts: new Date().toLocaleString("es-MX", {
+          dateStyle: "short",
+          timeStyle: "short",
+        }),
+        subs: data.recipients || 0,
+      };
+      NOTIF.history.unshift(entry);
+      NOTIF.sentToday++;
+      document.getElementById("admSentToday").textContent = NOTIF.sentToday;
+      admRenderNotifHistory();
+      admToast(
+        "✅ Notificación enviada a " +
+          (data.recipients || 0) +
+          " suscriptor(es)",
+      );
+
+      // Limpiar campos
+      document.getElementById("notifTitle").value = "";
+      document.getElementById("notifBody").value = "";
+    } else {
+      console.error("OneSignal error:", data);
+      admToast("❌ Error al enviar: " + (data.errors?.[0] || "desconocido"));
+    }
+  } catch (e) {
+    console.error(e);
+    admToast("❌ Error de conexión con OneSignal");
   }
-
-  // Registrar en historial
-  const entry = {
-    title,
-    body,
-    icon,
-    ts: new Date().toLocaleString("es-MX", {
-      dateStyle: "short",
-      timeStyle: "short",
-    }),
-    subs: Math.max(NOTIF.subs.length, 1),
-  };
-  NOTIF.history.unshift(entry);
-  NOTIF.sentToday++;
-  document.getElementById("admSentToday").textContent = NOTIF.sentToday;
-
-  admRenderNotifHistory();
-  admToast("Notificación enviada a " + entry.subs + " suscriptor(es)");
-
-  // Limpiar campos
-  document.getElementById("notifTitle").value = "";
-  document.getElementById("notifBody").value = "";
 };
 
 /* ── Historial ── */
