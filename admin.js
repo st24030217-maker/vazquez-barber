@@ -843,19 +843,22 @@ window.pushRequestPermission = async function () {
 async function pushSubscribe() {
   if (!window._swReg) return;
   try {
-    // En producción real usarías VAPID keys. Aquí simulamos la suscripción.
     const sub = await window._swReg.pushManager.subscribe({
       userVisibleOnly: true,
-      // VAPID key placeholder — reemplazar con clave real al subir a servidor
       applicationServerKey: urlBase64ToUint8Array(
-        "BEl62iUYgUivxIkv69yViEuiBIa-Ib9-SkvMeAtA3LFgDzkrxZJjSgSnfckjZkV8-Ls0EhEGYB_bA-FkFX_Glgo",
+        "BCeJufqGlHjQ6H8Zm0fZHhGznoJQ-5ZqktsufY6lBMbOUK-6AIT4mIMf6x7zxwBVOIlsYCSI7iOzHAw5Y09EjzQ",
       ),
     });
+    // Guardar suscripción en el servidor
+    await fetch("/api/send-notification?action=subscribe", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(sub),
+    }).catch(() => {});
     NOTIF.subs.push(sub);
     admUpdateSubCount();
   } catch (e) {
-    // En file:// no funciona pushManager.subscribe, se muestra igual la UI
-    console.log("Push subscribe (demo mode):", e.message);
+    console.log("Push subscribe error:", e.message);
   }
 }
 
