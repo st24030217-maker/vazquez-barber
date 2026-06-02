@@ -17,11 +17,24 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@200;300;400;500&family=DM+Mono:wght@300;400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@200;300;400;500&family=DM+Sans:wght@200;300;400;500&family=DM+Mono:wght@300;400&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="responsive.css" />
+    <!-- Stripe.js -->
+    <script src="https://js.stripe.com/v3/" defer></script>
+
+    <!-- PWA — logo en pantalla de inicio del telefono -->
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#080808" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Barberia Vazquez" />
+    <link rel="apple-touch-icon" href="logo.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="logo.png" />
+    <link rel="icon" type="image/png" href="logo.png" />
   </head>
   <body>
     <div class="cursor" id="cur"></div>
@@ -122,6 +135,7 @@
             </svg>
           </a>
         </div>
+
       </div>
       <div class="h-floats">
         <div class="hf">
@@ -280,11 +294,10 @@
           </svg>
           <div class="sv-n">Corte Clásico</div>
           <p class="sv-d">
-            Corte de precisión con tijera y máquina, terminado con navaja para
-            un acabado impecable y duradero.
+            Corte a tijera y navaja con acabado impecable y duradero.
           </p>
           <div class="sv-p">
-            <span class="a">$150</span><span class="m">MXN</span>
+            <span class="a">$140</span><span class="m">MXN</span>
           </div>
           <div class="sv-dur">45 minutos</div>
         </div>
@@ -295,15 +308,14 @@
             <line x1="12" y1="3" x2="12" y2="21" />
             <polyline points="4 7 12 11 20 7" />
           </svg>
-          <div class="sv-n">Corte + Afeitado</div>
+          <div class="sv-n">Corte Moderno</div>
           <p class="sv-d">
-            La experiencia completa. Corte de precisión más afeitado a navaja
-            con toalla caliente y aceites esenciales.
+            Corte de estilo contemporáneo adaptado a tu look y personalidad.
           </p>
           <div class="sv-p">
-            <span class="a">$280</span><span class="m">MXN</span>
+            <span class="a">$140</span><span class="m">MXN</span>
           </div>
-          <div class="sv-dur">75 minutos</div>
+          <div class="sv-dur">45 minutos</div>
         </div>
         <div class="sv">
           <svg class="sv-i" viewBox="0 0 24 24">
@@ -311,65 +323,70 @@
             <circle cx="12" cy="7" r="4" />
             <path d="M8 14s1.5 2 4 2 4-2 4-2" />
           </svg>
-          <div class="sv-n">Diseño de Barba</div>
+          <div class="sv-n">Arreglo de Barba en Ritual</div>
           <p class="sv-d">
-            Perfilado, delineado y acondicionamiento profundo para una barba
-            perfectamente definida y nutrida.
+            Ritual completo de perfilado y diseño profesional de barba.
           </p>
           <div class="sv-p">
-            <span class="a">$120</span><span class="m">MXN</span>
+            <span class="a">$140</span><span class="m">MXN</span>
           </div>
-          <div class="sv-dur">35 minutos</div>
+          <div class="sv-dur">40 minutos</div>
         </div>
         <div class="sv">
           <svg class="sv-i" viewBox="0 0 24 24">
-            <polygon
-              points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-            />
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
           </svg>
-          <div class="sv-n">Experiencia VIP</div>
+          <div class="sv-n">Delineado</div>
           <p class="sv-d">
-            Corte + afeitado + mascarilla facial + masaje de cuero cabelludo +
-            bebida de cortesía. El máximo lujo.
+            Definición precisa de líneas y contornos para un acabado limpio y definido.
           </p>
           <div class="sv-p">
-            <span class="a">$450</span><span class="m">MXN</span>
+            <span class="a">$60</span><span class="m">MXN</span>
           </div>
-          <div class="sv-dur">2 horas</div>
+          <div class="sv-dur">20 minutos</div>
         </div>
         <div class="sv">
           <svg class="sv-i" viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="10" />
-            <path d="M8 14s1.5 2 4 2 4-2 4-2" />
-            <line x1="9" y1="9" x2="9.01" y2="9" />
-            <line x1="15" y1="9" x2="15.01" y2="9" />
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+            <circle cx="12" cy="12" r="3" />
           </svg>
-          <div class="sv-n">Color & Mechas</div>
+          <div class="sv-n">Arreglo de Ceja</div>
           <p class="sv-d">
-            Coloración profesional, mechas naturales o cobertura de canas.
-            Resultados de semanas con productos de lujo.
+            Perfilado y arreglo profesional de cejas para un look impecable.
           </p>
           <div class="sv-p">
-            <span class="a">$350</span><span class="m">MXN</span>
+            <span class="a">$60</span><span class="m">MXN</span>
           </div>
-          <div class="sv-dur">90 minutos</div>
+          <div class="sv-dur">15 minutos</div>
         </div>
         <div class="sv">
           <svg class="sv-i" viewBox="0 0 24 24">
-            <path
-              d="M12 22c-4.97 0-9-4.03-9-9 0-4.68 3.58-8.55 8.18-8.96L12 4l.82-.04C17.42 4.45 21 8.32 21 13c0 4.97-4.03 9-9 9z"
-            />
+            <path d="M12 2a10 10 0 0 1 0 20A10 10 0 0 1 12 2z" />
+            <path d="M12 6v6l4 2" />
+          </svg>
+          <div class="sv-n">Lavado de Cabello</div>
+          <p class="sv-d">
+            Lavado con productos de calidad para un cabello limpio y fresco.
+          </p>
+          <div class="sv-p">
+            <span class="a">$50</span><span class="m">MXN</span>
+          </div>
+          <div class="sv-dur">15 minutos</div>
+        </div>
+        <div class="sv">
+          <svg class="sv-i" viewBox="0 0 24 24">
+            <path d="M12 22c-4.97 0-9-4.03-9-9 0-4.68 3.58-8.55 8.18-8.96L12 4l.82-.04C17.42 4.45 21 8.32 21 13c0 4.97-4.03 9-9 9z" />
             <path d="M12 4c0 0-3 3-3 7s3 7 3 7 3-3 3-7-3-7-3-7z" />
           </svg>
-          <div class="sv-n">Masaje & Facial</div>
+          <div class="sv-n">Mascarilla o Tinte de Barba</div>
           <p class="sv-d">
-            Tratamiento facial revitalizante con masaje de cuero cabelludo y
-            productos artesanales seleccionados.
+            Tratamiento con mascarilla nutritiva o aplicación de tinte para barba.
           </p>
           <div class="sv-p">
-            <span class="a">$200</span><span class="m">MXN</span>
+            <span class="a">$100</span><span class="m">MXN</span>
           </div>
-          <div class="sv-dur">50 minutos</div>
+          <div class="sv-dur">30 minutos</div>
         </div>
       </div>
     </section>
@@ -729,87 +746,177 @@
         </div>
       </div>
       <div class="bk-form reveal">
-        <div class="bkf-t">Nueva Reservación</div>
-        <form id="aptForm">
-          <div class="fgrid">
-            <div class="fg">
-              <label>Nombre</label
-              ><input id="aptNombre" type="text" placeholder="Tu nombre completo" required />
+
+        <!-- PASO 1: Datos de la cita -->
+        <div id="bkStep1">
+          <div class="bkf-t">Nueva Reservación</div>
+          <!-- Indicador de pasos -->
+          <div class="bk-steps">
+            <div class="bk-step active" id="stepDot1">
+              <div class="bk-step-dot">1</div>
+              <div class="bk-step-label">Tu cita</div>
             </div>
-            <div class="fg">
-              <label>Teléfono</label
-              ><input id="aptTelefono" type="tel" placeholder="+52 618 000 0000" required />
-            </div>
-            <div class="fg">
-              <label>Servicio</label
-              ><select id="aptServicio" required>
-                <option value="">Seleccionar...</option>
-                <option>Corte Clásico — $150</option>
-                <option>Corte + Afeitado — $280</option>
-                <option>Diseño de Barba — $120</option>
-                <option>Experiencia VIP — $450</option>
-                <option>Color & Mechas — $350</option>
-                <option>Masaje & Facial — $200</option>
-              </select>
-            </div>
-            <div class="fg">
-              <label>Barbero</label
-              ><select id="aptBarbero">
-                <option>Cualquier barbero</option>
-                <option>Rafael Medina</option>
-                <option>Carlos Vega</option>
-                <option>Miguel Torres</option>
-              </select>
-            </div>
-            <div class="fg">
-              <label>Fecha</label><input type="date" id="dateIn" required />
-            </div>
-            <div class="fg">
-              <label>Horario</label
-              ><select id="aptHora" required>
-                <option value="">Seleccionar...</option>
-                <option>10:00 AM</option>
-                <option>11:00 AM</option>
-                <option>12:00 PM</option>
-                <option>1:00 PM</option>
-                <option>2:00 PM</option>
-                <option>3:00 PM</option>
-                <option>4:00 PM</option>
-                <option>5:00 PM</option>
-                <option>6:00 PM</option>
-                <option>7:00 PM</option>
-              </select>
-            </div>
-            <div class="fg sp2">
-              <label>Notas</label
-              ><textarea id="aptNotas"
-                placeholder="Alguna preferencia especial o referencia de estilo..."
-              ></textarea>
+            <div class="bk-step-line"></div>
+            <div class="bk-step" id="stepDot2">
+              <div class="bk-step-dot">2</div>
+              <div class="bk-step-label">Pago</div>
             </div>
           </div>
-          <button type="submit" class="f-btn">Confirmar Reservación</button>
-        </form>
-        <div class="f-ok" id="fOk">
+          <form id="aptForm">
+            <div class="fgrid">
+              <div class="fg">
+                <label>Nombre</label
+                ><input id="aptNombre" type="text" placeholder="Tu nombre completo" required />
+              </div>
+              <div class="fg">
+                <label>Teléfono</label
+                ><input id="aptTelefono" type="tel" placeholder="+52 618 000 0000" required />
+              </div>
+              <div class="fg">
+                <label>Servicio</label
+                ><select id="aptServicio" required>
+                  <option value="">Seleccionar...</option>
+                  <option value="140">Corte Clásico — $140</option>
+                  <option value="140">Corte Moderno — $140</option>
+                  <option value="140">Arreglo de Barba en Ritual — $140</option>
+                  <option value="60">Delineado — $60</option>
+                  <option value="60">Arreglo de Ceja — $60</option>
+                  <option value="50">Lavado de Cabello — $50</option>
+                  <option value="100">Mascarilla o Tinte de Barba — $100</option>
+                </select>
+              </div>
+              <div class="fg">
+                <label>Barbero</label
+                ><select id="aptBarbero">
+                  <option>Cualquier barbero</option>
+                  <option>Rafael Medina</option>
+                  <option>Carlos Vega</option>
+                  <option>Miguel Torres</option>
+                </select>
+              </div>
+              <div class="fg">
+                <label>Fecha</label><input type="date" id="dateIn" required />
+              </div>
+              <div class="fg">
+                <label>Horario</label
+                ><select id="aptHora" required>
+                  <option value="">Seleccionar...</option>
+                  <option>10:00 AM</option>
+                  <option>11:00 AM</option>
+                  <option>12:00 PM</option>
+                  <option>1:00 PM</option>
+                  <option>2:00 PM</option>
+                  <option>3:00 PM</option>
+                  <option>4:00 PM</option>
+                  <option>5:00 PM</option>
+                  <option>6:00 PM</option>
+                  <option>7:00 PM</option>
+                </select>
+              </div>
+              <div class="fg sp2">
+                <label>Notas</label
+                ><textarea id="aptNotas"
+                  placeholder="Alguna preferencia especial o referencia de estilo..."
+                ></textarea>
+              </div>
+            </div>
+            <button type="submit" class="f-btn">
+              Continuar al Pago
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:.4rem"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </form>
+        </div>
+
+        <!-- PASO 2: Método de pago -->
+        <div id="bkStep2" style="display:none">
+          <div class="bkf-t">Método de Pago</div>
+          <!-- Indicador de pasos -->
+          <div class="bk-steps">
+            <div class="bk-step done" id="stepDot1b">
+              <div class="bk-step-dot">✓</div>
+              <div class="bk-step-label">Tu cita</div>
+            </div>
+            <div class="bk-step-line active"></div>
+            <div class="bk-step active" id="stepDot2b">
+              <div class="bk-step-dot">2</div>
+              <div class="bk-step-label">Pago</div>
+            </div>
+          </div>
+
+          <!-- Resumen de la cita -->
+          <div class="bk-summary" id="bkSummary"></div>
+
+          <!-- Tabs de método -->
+          <div class="pay-tabs">
+            <button class="pay-tab active" id="tabCard" onclick="switchPayTab('card')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+              Tarjeta
+            </button>
+            <button class="pay-tab" id="tabTransfer" onclick="switchPayTab('transfer')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              Transferencia
+            </button>
+          </div>
+
+          <!-- Panel Tarjeta (Stripe) -->
+          <div id="panelCard">
+            <div class="pay-stripe-note">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Pago seguro con cifrado SSL — procesado por Stripe
+            </div>
+            <div id="stripe-card-element" class="stripe-element"></div>
+            <div id="stripe-card-errors" class="stripe-errors" role="alert"></div>
+            <button class="f-btn" id="btnPayCard" onclick="handleCardPayment()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+              Pagar con Tarjeta
+            </button>
+          </div>
+
+          <!-- Panel Transferencia (SPEI/OXXO via Stripe) -->
+          <div id="panelTransfer" style="display:none">
+            <div class="pay-transfer-opts">
+              <div class="pay-transfer-opt active" id="optSpei" onclick="selectTransfer('spei')">
+                <div class="pto-ico">🏦</div>
+                <div>
+                  <div class="pto-title">SPEI — Transferencia bancaria</div>
+                  <div class="pto-desc">Recibe CLABE interbancaria al instante</div>
+                </div>
+              </div>
+              <div class="pay-transfer-opt" id="optOxxo" onclick="selectTransfer('oxxo')">
+                <div class="pto-ico">🏪</div>
+                <div>
+                  <div class="pto-title">OXXO Pay</div>
+                  <div class="pto-desc">Genera un cupón y paga en cualquier OXXO</div>
+                </div>
+              </div>
+            </div>
+            <div id="stripe-transfer-errors" class="stripe-errors" role="alert"></div>
+            <button class="f-btn" id="btnPayTransfer" onclick="handleTransferPayment()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              Generar instrucciones de pago
+            </button>
+          </div>
+
+          <button class="bk-back-btn" onclick="goBackStep1()">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            Modificar cita
+          </button>
+        </div>
+
+        <!-- PASO 3: Confirmación / Instrucciones de transferencia -->
+        <div class="f-ok" id="fOk" style="display:none">
           <svg class="f-ok-i" width="52" height="52" viewBox="0 0 24 24">
             <circle cx="12" cy="12" r="10" />
-            <polyline
-              points="9 12 11 14 15 10"
-              stroke="#7B4A30"
-              stroke-width="1.2"
-              stroke-linecap="round"
-            />
+            <polyline points="9 12 11 14 15 10" stroke="#909090" stroke-width="1.2" stroke-linecap="round" />
           </svg>
-          Reservación confirmada.<br />
-          <span
-            style="
-              font-family: var(--fb);
-              font-size: 0.85rem;
-              color: var(--gray-light);
-              font-weight: 300;
-            "
-            >Te contactaremos por WhatsApp en breve.</span
-          >
+          <div id="fOkMsg">Reservación confirmada.</div>
+          <span id="fOkSub" style="font-family:var(--fb);font-size:.85rem;color:var(--gray-light);font-weight:300">
+            Te contactaremos por WhatsApp en breve.
+          </span>
+          <!-- Instrucciones de transferencia (se muestra si aplica) -->
+          <div id="transferInstructions" style="display:none;margin-top:1.5rem;width:100%"></div>
         </div>
+
       </div>
     </section>
 
@@ -1984,5 +2091,6 @@
 
 
     <script src="admin.js"></script>
+
   </body>
 </html>

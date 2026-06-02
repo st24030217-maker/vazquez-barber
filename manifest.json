@@ -1,13 +1,13 @@
 {
   "name": "Barbería Vázquez",
-  "short_name": "Bría Vázquez",
-  "description": "Barbería de precisión en Lerdo, Durango. Más de 30 años de tradición.",
+  "short_name": "Vázquez",
+  "description": "Barbería de precisión — Lerdo, Durango",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0a0a0a",
-  "theme_color": "#0a0a0a",
+  "background_color": "#080808",
+  "theme_color": "#080808",
   "orientation": "portrait",
-  "lang": "es-MX",
+  "lang": "es",
   "icons": [
     {
       "src": "logo.png",
@@ -20,6 +20,13 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
   ]
 }

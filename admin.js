@@ -20,44 +20,51 @@ const DATOS_INIT = {
     {
       id: 1,
       nombre: "Corte Clásico",
-      precio: 150,
+      precio: 140,
       duracion: 45,
-      desc: "Corte de precisión con tijera y máquina, terminado con navaja.",
+      desc: "Corte a tijera y navaja con acabado impecable.",
     },
     {
       id: 2,
-      nombre: "Corte + Afeitado",
-      precio: 280,
-      duracion: 75,
-      desc: "Corte premium + afeitado a navaja con toalla caliente.",
+      nombre: "Corte Moderno",
+      precio: 140,
+      duracion: 45,
+      desc: "Corte de estilo contemporáneo adaptado a tu look.",
     },
     {
       id: 3,
-      nombre: "Diseño de Barba",
-      precio: 120,
-      duracion: 35,
-      desc: "Perfilado y diseño profesional de barba.",
+      nombre: "Arreglo de Barba en Ritual",
+      precio: 140,
+      duracion: 40,
+      desc: "Ritual completo de perfilado y diseño profesional de barba.",
     },
     {
       id: 4,
-      nombre: "Experiencia VIP",
-      precio: 450,
-      duracion: 120,
-      desc: "Corte + afeitado + tratamiento + bebida de bienvenida.",
+      nombre: "Delineado",
+      precio: 60,
+      duracion: 20,
+      desc: "Definición precisa de líneas y contornos.",
     },
     {
       id: 5,
-      nombre: "Color & Mechas",
-      precio: 350,
-      duracion: 90,
-      desc: "Coloración profesional o cobertura de canas.",
+      nombre: "Arreglo de Ceja",
+      precio: 60,
+      duracion: 15,
+      desc: "Perfilado y arreglo profesional de cejas.",
     },
     {
       id: 6,
-      nombre: "Masaje & Facial",
-      precio: 200,
-      duracion: 50,
-      desc: "Tratamiento facial revitalizante con masaje de cuero cabelludo.",
+      nombre: "Lavado de Cabello",
+      precio: 50,
+      duracion: 15,
+      desc: "Lavado con productos de calidad para un cabello limpio y fresco.",
+    },
+    {
+      id: 7,
+      nombre: "Mascarilla o Tinte de Barba",
+      precio: 100,
+      duracion: 30,
+      desc: "Tratamiento con mascarilla nutritiva o aplicación de tinte para barba.",
     },
   ],
   equipo: [
@@ -99,14 +106,48 @@ const DATOS_INIT = {
 };
 
 /* ── ESTADO ── */
-let DATOS =
-  JSON.parse(localStorage.getItem("bv_admin_datos") || "null") ||
-  JSON.parse(JSON.stringify(DATOS_INIT));
+let DATOS = JSON.parse(JSON.stringify(DATOS_INIT));
 let editSvcId = null;
 let editBrbId = null;
 
-function guardar() {
-  localStorage.setItem("bv_admin_datos", JSON.stringify(DATOS));
+/* ── API URL ── */
+const API_URL = "/api/datos";
+
+/* ── Secret del admin — debe coincidir con ADMIN_SECRET en Vercel ── */
+const ADMIN_SECRET = ADMIN_CREDS.pass;
+
+/* ── Carga datos desde Vercel KV al iniciar ── */
+async function cargarDatos() {
+  try {
+    const res = await fetch(API_URL);
+    const json = await res.json();
+    if (json.ok && json.datos) {
+      DATOS = json.datos;
+      if (!DATOS.citas) DATOS.citas = [];
+    }
+  } catch (e) {
+    console.warn("No se pudo cargar desde API, usando datos iniciales:", e);
+  }
+}
+
+/* ── Guarda datos en Vercel KV ── */
+async function guardar() {
+  try {
+    const res = await fetch(API_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-admin-secret": ADMIN_SECRET,
+      },
+      body: JSON.stringify(DATOS),
+    });
+    const json = await res.json();
+    if (!json.ok) console.error("Error al guardar:", json.error);
+  } catch (e) {
+    console.error("Error de red al guardar:", e);
+    admToast("⚠️ Sin conexión — cambio guardado localmente");
+    localStorage.setItem("bv_admin_datos_backup", JSON.stringify(DATOS));
+  }
 }
 
 /* ══════════════════════════
@@ -142,7 +183,9 @@ function adminDoLogin() {
     const siteMob = document.getElementById("mob");
     if (siteNav) siteNav.style.display = "none";
     if (siteMob) siteMob.style.display = "none";
-    admRenderAll();
+    // Carga datos frescos de la API antes de renderizar
+    admToast("Cargando datos...");
+    cargarDatos().then(() => admRenderAll());
     document.getElementById("admDate").textContent =
       new Date().toLocaleDateString("es-MX", {
         weekday: "long",
